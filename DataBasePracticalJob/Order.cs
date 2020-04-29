@@ -18,6 +18,6 @@ namespace DataBasePracticalJob
         private Client client { get; set; }
         private JumpType jumpType { get; set; }
         private int peopleNumber { get; set; }
-        private bool status { get; set; }
+        private string status { get; set; }
     }
 }
