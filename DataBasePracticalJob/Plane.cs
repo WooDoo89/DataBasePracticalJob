@@ -12,5 +12,8 @@ namespace DataBasePracticalJob
         private Admin admin { get; set; }
         private Pilot pilot { get; set; }
         private Place place { get; set; }
+        private int capacity { get; set; }
+        private string type { get; set; }
+        private string decription { get; set; }
     }
 }
