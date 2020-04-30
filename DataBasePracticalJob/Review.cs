@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace DataBasePracticalJob
 {
-    class Archyve
+    class Review
     {
         private int ID { get; set; }
-        private Admin admin { get; set; }
-        private Client client { get; set; }
+        private Order order { get; set; }
+        private string instructor { get; set; }
+        private string jump { get; set; }
     }
 }

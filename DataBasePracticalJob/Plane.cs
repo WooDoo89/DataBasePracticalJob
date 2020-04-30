@@ -15,5 +15,6 @@ namespace DataBasePracticalJob
         private int capacity { get; set; }
         private string type { get; set; }
         private string decription { get; set; }
+        private int quanity { get; set; }
     }
 }
