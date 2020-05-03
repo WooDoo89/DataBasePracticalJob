@@ -39,6 +39,7 @@
       <HintPath>..\packages\Dapper.2.0.35\lib\net461\Dapper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SQLite, Version=1.0.112.1, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SQLite.Core.1.0.112.2\lib\net40\System.Data.SQLite.dll</HintPath>
@@ -59,6 +60,7 @@
     <Compile Include="Archyve.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="Coupon.cs" />
+    <Compile Include="DataBase.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +77,12 @@
     <Compile Include="Instructor.cs" />
     <Compile Include="Equipment.cs" />
     <Compile Include="JumpType.cs" />
+    <Compile Include="MainSystem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainSystem.Designer.cs">
+      <DependentUpon>MainSystem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Order.cs" />
     <Compile Include="Pilot.cs" />
     <Compile Include="Place.cs" />
@@ -95,6 +103,9 @@
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MainSystem.resx">
+      <DependentUpon>MainSystem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -108,6 +119,9 @@
       <DependentUpon>Registrate.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <Content Include="praktikosDB.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

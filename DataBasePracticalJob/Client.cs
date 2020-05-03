@@ -8,8 +8,27 @@ namespace DataBasePracticalJob
 {
     class Client : Human
     {
-        private Admin admin { get; set; }
-        private float weight { get; set; }
-        private float height { get; set; }
+        public int admin { get; set; }
+        public double weight { get; set; }
+        public double height { get; set; }
+
+        protected static Client c;
+        protected static int thisClientID;
+        public void SetList(Client C)
+        {
+            c = C;
+        }
+        public Client GetList()
+        {
+            return c;
+        }
+        public void SetID(int id)
+        {
+            thisClientID = id;
+        }
+        public int GetID()
+        {
+            return thisClientID;
+        }
     }
 }
