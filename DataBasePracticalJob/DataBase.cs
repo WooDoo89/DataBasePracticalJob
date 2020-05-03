@@ -12,19 +12,43 @@ namespace DataBasePracticalJob
 {
     class DataBase
     {
-        public static List<PaymentClass> GetPayment(string TableName)
+        public static List<Client> GetClient()
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<PaymentClass>("select * from " + TableName, new DynamicParameters());
+                var output = cnn.Query<Client>("select * from Client", new DynamicParameters());
                 return output.ToList();
             }
         }
-        public static void SaveBoughtGames(string TableName, BoughtGames Bg)
+        public static List<Admin> GetAdmin()
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                cnn.Execute("insert into BoughtGames values (@ID, @Name)", Bg);
+                var output = cnn.Query<Admin>("select * from Admin", new DynamicParameters());
+                return output.ToList();
+            }
+        }
+        public static List<Instructor> GetInstructor()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<Instructor>("select * from Instructor", new DynamicParameters());
+                return output.ToList();
+            }
+        }
+        public static List<Pilot> GetPilot()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<Pilot>("select * from Pilot", new DynamicParameters());
+                return output.ToList();
+            }
+        }
+        public static void SaveClient(Client cl)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                cnn.Execute("insert into Client values (@ID, @admin, @username, @password, @name, @surname, @email, @mobileNumber, @weight, @height)", cl);
             }
         }
         private static string LoadConnectionString(string id = "praktikosDB")

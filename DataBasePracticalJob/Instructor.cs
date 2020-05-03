@@ -8,6 +8,25 @@ namespace DataBasePracticalJob
 {
     class Instructor : Human
     {
-        private Place place { get; set; }
+        public Place place { get; set; }
+
+        protected static Instructor i;
+        protected static int thisInstructorID;
+        public void SetList(Instructor I)
+        {
+            i = I;
+        }
+        public Instructor GetList()
+        {
+            return i;
+        }
+        public void SetID(int id)
+        {
+            thisInstructorID = id;
+        }
+        public int GetID()
+        {
+            return thisInstructorID;
+        }
     }
 }
