@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataBasePracticalJob
 {
-    abstract class Human
+     abstract class Human
     {
         public int ID { get; set; }
         public string username { get; set; }

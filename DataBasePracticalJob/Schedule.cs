@@ -8,11 +8,12 @@ namespace DataBasePracticalJob
 {
     class Schedule
     {
-        private int ID { get; set; }
-        private Client client { get; set; }
-        private Instructor instructor { get; set; }
-        private Admin Admin { get; set; }
-        private Plane plane { get; set; }
-        private string date { get; set; }
+        public int ID { get; set; }
+        public int client { get; set; }
+        public int pilot { get; set; }
+        public int instructor { get; set; }
+        public int admin { get; set; }
+        public int plane { get; set; }
+        public string date { get; set; }
     }
 }

@@ -8,13 +8,13 @@ namespace DataBasePracticalJob
 {
     class Plane
     {
-        private int ID { get; set; }
-        private Admin admin { get; set; }
-        private Pilot pilot { get; set; }
-        private Place place { get; set; }
-        private int capacity { get; set; }
-        private string type { get; set; }
-        private string decription { get; set; }
-        private int quanity { get; set; }
+        public int ID { get; set; }
+        public int admin { get; set; }
+        public int pilot { get; set; }
+        public string place { get; set; }
+        public int capacity { get; set; }
+        public string type { get; set; }
+        public string decription { get; set; }
+        public int quanity { get; set; }
     }
 }

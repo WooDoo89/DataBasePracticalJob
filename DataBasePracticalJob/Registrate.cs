@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace DataBasePracticalJob
 {
     public partial class Registrate : Form
     {
+        Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,4})+)$");
         public Registrate()
         {
             InitializeComponent();
@@ -24,11 +26,16 @@ namespace DataBasePracticalJob
 
         private void confirmButton_Click(object sender, EventArgs e)
         {
-            if (usernameTextBox.Text == "" && passwordTextBox.Text == "" && confirmPasswordTextBox.Text == ""
-                && nameTextBox.Text == "" && surnameTextBox.Text == "" && phoneTextBox.Text == ""
-                && emailTextBox.Text == "" && weightTextBox.Text == "" && heightTextBox.Text == "")
+            Match match = regex.Match(emailTextBox.Text);
+            if (usernameTextBox.Text == "" || passwordTextBox.Text == "" || confirmPasswordTextBox.Text == ""
+                && nameTextBox.Text == "" || surnameTextBox.Text == "" || phoneTextBox.Text == ""
+                && emailTextBox.Text == "" || weightTextBox.Text == "" || heightTextBox.Text == "")
             {
                 MessageBox.Show("Please fill in all fields!");
+            }
+            else if (match.Success == false)
+            {
+                MessageBox.Show("Please check if you entered correct email address!");
             }
             else if (passwordTextBox.Text == confirmPasswordTextBox.Text)
             {
@@ -36,10 +43,9 @@ namespace DataBasePracticalJob
                 int h = 0;
                 clients = DataBase.GetClient();
 
-                Random rnd = new Random();
                 Client newClient = new Client();
                 newClient.ID = clients.Count;
-                newClient.admin = rnd.Next(1, 3);
+                newClient.admin = 0;
                 newClient.username = usernameTextBox.Text;
                 newClient.password = passwordTextBox.Text;
                 newClient.name = nameTextBox.Text;
@@ -64,20 +70,20 @@ namespace DataBasePracticalJob
                     MessageBox.Show("New user has been created");
                     Close();
                 }
+                //usernameTextBox.Text = "";
+                //passwordTextBox.Text = "";
+                //confirmPasswordTextBox.Text = "";
+                //nameTextBox.Text = "";
+                //surnameTextBox.Text = "";
+                //emailTextBox.Text = "";
+                //phoneTextBox.Text = "+370";
+                //weightTextBox.Text = "";
+                //heightTextBox.Text = "";
             }
             else
             {
                 MessageBox.Show("Passwords does not match!");
             }
-            usernameTextBox.Text = "";
-            passwordTextBox.Text = "";
-            confirmPasswordTextBox.Text = "";
-            nameTextBox.Text = "";
-            surnameTextBox.Text = "";
-            emailTextBox.Text = "";
-            phoneTextBox.Text = "+370";
-            weightTextBox.Text = "";
-            heightTextBox.Text = "";
         }
         private void Check(KeyPressEventArgs e)
         {

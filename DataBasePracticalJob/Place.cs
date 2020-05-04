@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataBasePracticalJob
 {
-    class Place
+     public class Place
     {
         private string postCode { get; set; }
         private int buildingNR { get; set; }

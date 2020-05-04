@@ -77,11 +77,23 @@
     <Compile Include="Instructor.cs" />
     <Compile Include="Equipment.cs" />
     <Compile Include="JumpType.cs" />
-    <Compile Include="MainSystem.cs">
+    <Compile Include="MainAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainSystem.Designer.cs">
-      <DependentUpon>MainSystem.cs</DependentUpon>
+    <Compile Include="MainAdmin.Designer.cs">
+      <DependentUpon>MainAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainClient.Designer.cs">
+      <DependentUpon>MainClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainWorker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainWorker.Designer.cs">
+      <DependentUpon>MainWorker.cs</DependentUpon>
     </Compile>
     <Compile Include="Order.cs" />
     <Compile Include="Pilot.cs" />
@@ -97,14 +109,18 @@
     </Compile>
     <Compile Include="Review.cs" />
     <Compile Include="Schedule.cs" />
+    <Compile Include="State.cs" />
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainSystem.resx">
-      <DependentUpon>MainSystem.cs</DependentUpon>
+    <EmbeddedResource Include="MainAdmin.resx">
+      <DependentUpon>MainAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainClient.resx">
+      <DependentUpon>MainClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

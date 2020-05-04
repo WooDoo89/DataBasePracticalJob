@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataBasePracticalJob
 {
-    class Client : Human
+     class Client : Human
     {
         public int admin { get; set; }
         public double weight { get; set; }

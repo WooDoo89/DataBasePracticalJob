@@ -55,5 +55,28 @@ namespace DataBasePracticalJob
         {
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;
         }
+        public static List<Plane> GetPlane()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<Plane>("select * from Plane", new DynamicParameters());
+                return output.ToList();
+            }
+        }
+        public static List<Schedule> GetSchedule()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<Schedule>("select * from Schedule", new DynamicParameters());
+                return output.ToList();
+            }
+        }
+        public static void SaveSchedule(Schedule cl)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                cnn.Execute("insert into Schedule values (@ID, @admin, @client,  @instructor, @pilot, @plane, @date)", cl);
+            }
+        }
     }
 }

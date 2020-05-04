@@ -46,8 +46,8 @@ namespace DataBasePracticalJob
                         help = 1;
                         this.Hide();
                         clients[i].SetList(clients[i]);
-                        clients[i].SetID(0);
-                        MainSystem system = new MainSystem();
+                        State.ActiveClient = clients[i];
+                        MainClient system = new MainClient();
                         system.ShowDialog();
                         this.Close();
                     }
@@ -59,8 +59,9 @@ namespace DataBasePracticalJob
                         help = 1;
                         this.Hide();
                         admins[i].SetList(admins[i]);
+                        State.ActiveAdmin = admins[i];
                         admins[i].SetID(0);
-                        MainSystem system = new MainSystem();
+                        MainAdmin system = new MainAdmin();
                         system.ShowDialog();
                         this.Close();
                     }
@@ -72,8 +73,8 @@ namespace DataBasePracticalJob
                         help = 1;
                         this.Hide();
                         instructors[i].SetList(instructors[i]);
-                        instructors[i].SetID(0);
-                        MainSystem system = new MainSystem();
+                        State.ActiveInstructor = instructors[i];
+                        MainWorker system = new MainWorker();
                         system.ShowDialog();
                         this.Close();
                     }
@@ -85,8 +86,8 @@ namespace DataBasePracticalJob
                         help = 1;
                         this.Hide();
                         pilots[i].SetList(pilots[i]);
-                        pilots[i].SetID(0);
-                        MainSystem system = new MainSystem();
+                        State.ActivePilot = pilots[i];
+                        MainWorker system = new MainWorker();
                         system.ShowDialog();
                         this.Close();
                     }

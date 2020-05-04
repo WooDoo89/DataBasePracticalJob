@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataBasePracticalJob
 {
-    class Pilot : Human
+     class Pilot : Human
     {
         public Place place { get; set; }
 
