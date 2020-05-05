@@ -30,6 +30,10 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.profileTab = new System.Windows.Forms.TabPage();
+            this.heightLabel = new System.Windows.Forms.Label();
+            this.weightLabel = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.idLabel = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.numberLabel = new System.Windows.Forms.Label();
@@ -42,33 +46,32 @@
             this.lastnameLabel = new System.Windows.Forms.Label();
             this.usernameLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
-            this.clientsTab = new System.Windows.Forms.TabPage();
-            this.checkedClients = new System.Windows.Forms.CheckedListBox();
-            this.instructorsTab = new System.Windows.Forms.TabPage();
-            this.checkedInstructors = new System.Windows.Forms.CheckedListBox();
-            this.pilotsTab = new System.Windows.Forms.TabPage();
-            this.checkedPilots = new System.Windows.Forms.CheckedListBox();
             this.scheduleTab = new System.Windows.Forms.TabPage();
-            this.checkedSchedule = new System.Windows.Forms.CheckedListBox();
-            this.equipment = new System.Windows.Forms.TabPage();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.comboEquipment = new System.Windows.Forms.ComboBox();
+            this.couponNumber = new System.Windows.Forms.TextBox();
+            this.comboJumpType = new System.Windows.Forms.ComboBox();
+            this.comboDate = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.instructorLabel = new System.Windows.Forms.Label();
+            this.pilotLabel = new System.Windows.Forms.Label();
+            this.planeLabel = new System.Windows.Forms.Label();
+            this.instructorNameLabel = new System.Windows.Forms.Label();
+            this.pilotNameLabel = new System.Windows.Forms.Label();
+            this.planeTypeLabel = new System.Windows.Forms.Label();
+            this.instructorSurnameLabel = new System.Windows.Forms.Label();
+            this.pilotSurnameLabel = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.profileTab.SuspendLayout();
-            this.clientsTab.SuspendLayout();
-            this.instructorsTab.SuspendLayout();
-            this.pilotsTab.SuspendLayout();
             this.scheduleTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.profileTab);
-            this.tabControl1.Controls.Add(this.clientsTab);
-            this.tabControl1.Controls.Add(this.instructorsTab);
-            this.tabControl1.Controls.Add(this.pilotsTab);
             this.tabControl1.Controls.Add(this.scheduleTab);
-            this.tabControl1.Controls.Add(this.equipment);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -77,6 +80,8 @@
             // 
             // profileTab
             // 
+            this.profileTab.Controls.Add(this.heightLabel);
+            this.profileTab.Controls.Add(this.weightLabel);
             this.profileTab.Controls.Add(this.label8);
             this.profileTab.Controls.Add(this.label7);
             this.profileTab.Controls.Add(this.idLabel);
@@ -98,11 +103,46 @@
             this.profileTab.TabIndex = 0;
             this.profileTab.Text = "Profile";
             this.profileTab.UseVisualStyleBackColor = true;
+            this.profileTab.Click += new System.EventHandler(this.profileTab_Click);
+            // 
+            // heightLabel
+            // 
+            this.heightLabel.AutoSize = true;
+            this.heightLabel.Location = new System.Drawing.Point(93, 219);
+            this.heightLabel.Name = "heightLabel";
+            this.heightLabel.Size = new System.Drawing.Size(0, 13);
+            this.heightLabel.TabIndex = 16;
+            // 
+            // weightLabel
+            // 
+            this.weightLabel.AutoSize = true;
+            this.weightLabel.Location = new System.Drawing.Point(93, 191);
+            this.weightLabel.Name = "weightLabel";
+            this.weightLabel.Size = new System.Drawing.Size(0, 13);
+            this.weightLabel.TabIndex = 15;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(15, 219);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(41, 13);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Height:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(15, 191);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(44, 13);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Weight:";
             // 
             // idLabel
             // 
             this.idLabel.AutoSize = true;
-            this.idLabel.Location = new System.Drawing.Point(100, 42);
+            this.idLabel.Location = new System.Drawing.Point(93, 19);
             this.idLabel.Name = "idLabel";
             this.idLabel.Size = new System.Drawing.Size(0, 13);
             this.idLabel.TabIndex = 12;
@@ -110,7 +150,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(22, 42);
+            this.label6.Location = new System.Drawing.Point(15, 19);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(21, 13);
             this.label6.TabIndex = 11;
@@ -119,7 +159,7 @@
             // numberLabel
             // 
             this.numberLabel.AutoSize = true;
-            this.numberLabel.Location = new System.Drawing.Point(100, 184);
+            this.numberLabel.Location = new System.Drawing.Point(93, 161);
             this.numberLabel.Name = "numberLabel";
             this.numberLabel.Size = new System.Drawing.Size(0, 13);
             this.numberLabel.TabIndex = 10;
@@ -127,7 +167,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 184);
+            this.label1.Location = new System.Drawing.Point(15, 161);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 9;
@@ -136,7 +176,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(22, 154);
+            this.label5.Location = new System.Drawing.Point(15, 131);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(35, 13);
             this.label5.TabIndex = 8;
@@ -145,7 +185,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 126);
+            this.label4.Location = new System.Drawing.Point(15, 103);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 13);
             this.label4.TabIndex = 7;
@@ -154,7 +194,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(22, 96);
+            this.label3.Location = new System.Drawing.Point(15, 73);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 6;
@@ -163,7 +203,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 67);
+            this.label2.Location = new System.Drawing.Point(15, 44);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 5;
@@ -172,7 +212,7 @@
             // emailLabel
             // 
             this.emailLabel.AutoSize = true;
-            this.emailLabel.Location = new System.Drawing.Point(100, 154);
+            this.emailLabel.Location = new System.Drawing.Point(93, 131);
             this.emailLabel.Name = "emailLabel";
             this.emailLabel.Size = new System.Drawing.Size(0, 13);
             this.emailLabel.TabIndex = 3;
@@ -180,7 +220,7 @@
             // lastnameLabel
             // 
             this.lastnameLabel.AutoSize = true;
-            this.lastnameLabel.Location = new System.Drawing.Point(100, 126);
+            this.lastnameLabel.Location = new System.Drawing.Point(93, 103);
             this.lastnameLabel.Name = "lastnameLabel";
             this.lastnameLabel.Size = new System.Drawing.Size(0, 13);
             this.lastnameLabel.TabIndex = 2;
@@ -188,7 +228,7 @@
             // usernameLabel
             // 
             this.usernameLabel.AutoSize = true;
-            this.usernameLabel.Location = new System.Drawing.Point(100, 67);
+            this.usernameLabel.Location = new System.Drawing.Point(93, 44);
             this.usernameLabel.Name = "usernameLabel";
             this.usernameLabel.Size = new System.Drawing.Size(0, 13);
             this.usernameLabel.TabIndex = 1;
@@ -196,69 +236,29 @@
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(100, 96);
+            this.nameLabel.Location = new System.Drawing.Point(93, 73);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(0, 13);
             this.nameLabel.TabIndex = 0;
             // 
-            // clientsTab
-            // 
-            this.clientsTab.Controls.Add(this.checkedClients);
-            this.clientsTab.Location = new System.Drawing.Point(4, 22);
-            this.clientsTab.Name = "clientsTab";
-            this.clientsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.clientsTab.Size = new System.Drawing.Size(768, 400);
-            this.clientsTab.TabIndex = 1;
-            this.clientsTab.Text = "Clients";
-            this.clientsTab.UseVisualStyleBackColor = true;
-            // 
-            // checkedClients
-            // 
-            this.checkedClients.FormattingEnabled = true;
-            this.checkedClients.Location = new System.Drawing.Point(3, 3);
-            this.checkedClients.Name = "checkedClients";
-            this.checkedClients.Size = new System.Drawing.Size(392, 394);
-            this.checkedClients.TabIndex = 1;
-            // 
-            // instructorsTab
-            // 
-            this.instructorsTab.Controls.Add(this.checkedInstructors);
-            this.instructorsTab.Location = new System.Drawing.Point(4, 22);
-            this.instructorsTab.Name = "instructorsTab";
-            this.instructorsTab.Size = new System.Drawing.Size(768, 400);
-            this.instructorsTab.TabIndex = 2;
-            this.instructorsTab.Text = "Instructors";
-            this.instructorsTab.UseVisualStyleBackColor = true;
-            // 
-            // checkedInstructors
-            // 
-            this.checkedInstructors.FormattingEnabled = true;
-            this.checkedInstructors.Location = new System.Drawing.Point(3, 3);
-            this.checkedInstructors.Name = "checkedInstructors";
-            this.checkedInstructors.Size = new System.Drawing.Size(392, 394);
-            this.checkedInstructors.TabIndex = 2;
-            // 
-            // pilotsTab
-            // 
-            this.pilotsTab.Controls.Add(this.checkedPilots);
-            this.pilotsTab.Location = new System.Drawing.Point(4, 22);
-            this.pilotsTab.Name = "pilotsTab";
-            this.pilotsTab.Size = new System.Drawing.Size(768, 400);
-            this.pilotsTab.TabIndex = 3;
-            this.pilotsTab.Text = "Pilots";
-            this.pilotsTab.UseVisualStyleBackColor = true;
-            // 
-            // checkedPilots
-            // 
-            this.checkedPilots.FormattingEnabled = true;
-            this.checkedPilots.Location = new System.Drawing.Point(3, 3);
-            this.checkedPilots.Name = "checkedPilots";
-            this.checkedPilots.Size = new System.Drawing.Size(392, 394);
-            this.checkedPilots.TabIndex = 3;
-            // 
             // scheduleTab
             // 
-            this.scheduleTab.Controls.Add(this.checkedSchedule);
+            this.scheduleTab.Controls.Add(this.pilotSurnameLabel);
+            this.scheduleTab.Controls.Add(this.instructorSurnameLabel);
+            this.scheduleTab.Controls.Add(this.planeTypeLabel);
+            this.scheduleTab.Controls.Add(this.pilotNameLabel);
+            this.scheduleTab.Controls.Add(this.instructorNameLabel);
+            this.scheduleTab.Controls.Add(this.planeLabel);
+            this.scheduleTab.Controls.Add(this.pilotLabel);
+            this.scheduleTab.Controls.Add(this.instructorLabel);
+            this.scheduleTab.Controls.Add(this.label12);
+            this.scheduleTab.Controls.Add(this.label11);
+            this.scheduleTab.Controls.Add(this.label10);
+            this.scheduleTab.Controls.Add(this.label9);
+            this.scheduleTab.Controls.Add(this.comboDate);
+            this.scheduleTab.Controls.Add(this.comboEquipment);
+            this.scheduleTab.Controls.Add(this.couponNumber);
+            this.scheduleTab.Controls.Add(this.comboJumpType);
             this.scheduleTab.Location = new System.Drawing.Point(4, 22);
             this.scheduleTab.Name = "scheduleTab";
             this.scheduleTab.Size = new System.Drawing.Size(768, 400);
@@ -266,40 +266,144 @@
             this.scheduleTab.Text = "Schedule";
             this.scheduleTab.UseVisualStyleBackColor = true;
             // 
-            // checkedSchedule
+            // comboEquipment
             // 
-            this.checkedSchedule.FormattingEnabled = true;
-            this.checkedSchedule.Location = new System.Drawing.Point(3, 3);
-            this.checkedSchedule.Name = "checkedSchedule";
-            this.checkedSchedule.Size = new System.Drawing.Size(328, 199);
-            this.checkedSchedule.TabIndex = 0;
+            this.comboEquipment.FormattingEnabled = true;
+            this.comboEquipment.Location = new System.Drawing.Point(363, 21);
+            this.comboEquipment.Name = "comboEquipment";
+            this.comboEquipment.Size = new System.Drawing.Size(196, 21);
+            this.comboEquipment.TabIndex = 7;
             // 
-            // equipment
+            // couponNumber
             // 
-            this.equipment.Location = new System.Drawing.Point(4, 22);
-            this.equipment.Name = "equipment";
-            this.equipment.Size = new System.Drawing.Size(768, 400);
-            this.equipment.TabIndex = 5;
-            this.equipment.Text = "Equipment";
-            this.equipment.UseVisualStyleBackColor = true;
+            this.couponNumber.Location = new System.Drawing.Point(257, 21);
+            this.couponNumber.Name = "couponNumber";
+            this.couponNumber.Size = new System.Drawing.Size(100, 20);
+            this.couponNumber.TabIndex = 6;
+            this.couponNumber.TextChanged += new System.EventHandler(this.couponNumber_TextChanged);
             // 
-            // label7
+            // comboJumpType
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(22, 214);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 13);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Weight:";
+            this.comboJumpType.FormattingEnabled = true;
+            this.comboJumpType.Location = new System.Drawing.Point(130, 21);
+            this.comboJumpType.Name = "comboJumpType";
+            this.comboJumpType.Size = new System.Drawing.Size(121, 21);
+            this.comboJumpType.TabIndex = 1;
             // 
-            // label8
+            // comboDate
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(22, 242);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(41, 13);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "Height:";
+            this.comboDate.FormattingEnabled = true;
+            this.comboDate.Location = new System.Drawing.Point(3, 21);
+            this.comboDate.Name = "comboDate";
+            this.comboDate.Size = new System.Drawing.Size(121, 21);
+            this.comboDate.TabIndex = 9;
+            this.comboDate.SelectedIndexChanged += new System.EventHandler(this.comboDate_SelectedIndexChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(360, 6);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(57, 13);
+            this.label11.TabIndex = 12;
+            this.label11.Text = "Equipment";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(254, 5);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(58, 13);
+            this.label10.TabIndex = 11;
+            this.label10.Text = "Coupon ID";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(127, 5);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(59, 13);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "Jump Type";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(3, 6);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(30, 13);
+            this.label12.TabIndex = 13;
+            this.label12.Text = "Date";
+            // 
+            // instructorLabel
+            // 
+            this.instructorLabel.AutoSize = true;
+            this.instructorLabel.Location = new System.Drawing.Point(593, 24);
+            this.instructorLabel.Name = "instructorLabel";
+            this.instructorLabel.Size = new System.Drawing.Size(54, 13);
+            this.instructorLabel.TabIndex = 14;
+            this.instructorLabel.Text = "Instructor:";
+            this.instructorLabel.Visible = false;
+            // 
+            // pilotLabel
+            // 
+            this.pilotLabel.AutoSize = true;
+            this.pilotLabel.Location = new System.Drawing.Point(593, 55);
+            this.pilotLabel.Name = "pilotLabel";
+            this.pilotLabel.Size = new System.Drawing.Size(30, 13);
+            this.pilotLabel.TabIndex = 15;
+            this.pilotLabel.Text = "Pilot:";
+            this.pilotLabel.Visible = false;
+            // 
+            // planeLabel
+            // 
+            this.planeLabel.AutoSize = true;
+            this.planeLabel.Location = new System.Drawing.Point(593, 89);
+            this.planeLabel.Name = "planeLabel";
+            this.planeLabel.Size = new System.Drawing.Size(37, 13);
+            this.planeLabel.TabIndex = 16;
+            this.planeLabel.Text = "Plane:";
+            this.planeLabel.Visible = false;
+            // 
+            // instructorNameLabel
+            // 
+            this.instructorNameLabel.AutoSize = true;
+            this.instructorNameLabel.Location = new System.Drawing.Point(653, 24);
+            this.instructorNameLabel.Name = "instructorNameLabel";
+            this.instructorNameLabel.Size = new System.Drawing.Size(0, 13);
+            this.instructorNameLabel.TabIndex = 17;
+            // 
+            // pilotNameLabel
+            // 
+            this.pilotNameLabel.AutoSize = true;
+            this.pilotNameLabel.Location = new System.Drawing.Point(653, 55);
+            this.pilotNameLabel.Name = "pilotNameLabel";
+            this.pilotNameLabel.Size = new System.Drawing.Size(0, 13);
+            this.pilotNameLabel.TabIndex = 18;
+            // 
+            // planeTypeLabel
+            // 
+            this.planeTypeLabel.AutoSize = true;
+            this.planeTypeLabel.Location = new System.Drawing.Point(653, 89);
+            this.planeTypeLabel.Name = "planeTypeLabel";
+            this.planeTypeLabel.Size = new System.Drawing.Size(0, 13);
+            this.planeTypeLabel.TabIndex = 19;
+            // 
+            // instructorSurnameLabel
+            // 
+            this.instructorSurnameLabel.AutoSize = true;
+            this.instructorSurnameLabel.Location = new System.Drawing.Point(653, 37);
+            this.instructorSurnameLabel.Name = "instructorSurnameLabel";
+            this.instructorSurnameLabel.Size = new System.Drawing.Size(0, 13);
+            this.instructorSurnameLabel.TabIndex = 20;
+            // 
+            // pilotSurnameLabel
+            // 
+            this.pilotSurnameLabel.AutoSize = true;
+            this.pilotSurnameLabel.Location = new System.Drawing.Point(653, 68);
+            this.pilotSurnameLabel.Name = "pilotSurnameLabel";
+            this.pilotSurnameLabel.Size = new System.Drawing.Size(0, 13);
+            this.pilotSurnameLabel.TabIndex = 21;
             // 
             // MainClient
             // 
@@ -312,10 +416,8 @@
             this.tabControl1.ResumeLayout(false);
             this.profileTab.ResumeLayout(false);
             this.profileTab.PerformLayout();
-            this.clientsTab.ResumeLayout(false);
-            this.instructorsTab.ResumeLayout(false);
-            this.pilotsTab.ResumeLayout(false);
             this.scheduleTab.ResumeLayout(false);
+            this.scheduleTab.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -336,16 +438,26 @@
         private System.Windows.Forms.Label lastnameLabel;
         private System.Windows.Forms.Label usernameLabel;
         private System.Windows.Forms.Label nameLabel;
-        private System.Windows.Forms.TabPage clientsTab;
-        private System.Windows.Forms.CheckedListBox checkedClients;
-        private System.Windows.Forms.TabPage instructorsTab;
-        private System.Windows.Forms.CheckedListBox checkedInstructors;
-        private System.Windows.Forms.TabPage pilotsTab;
-        private System.Windows.Forms.CheckedListBox checkedPilots;
         private System.Windows.Forms.TabPage scheduleTab;
-        private System.Windows.Forms.CheckedListBox checkedSchedule;
-        private System.Windows.Forms.TabPage equipment;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label heightLabel;
+        private System.Windows.Forms.Label weightLabel;
+        private System.Windows.Forms.ComboBox comboJumpType;
+        private System.Windows.Forms.TextBox couponNumber;
+        private System.Windows.Forms.ComboBox comboEquipment;
+        private System.Windows.Forms.ComboBox comboDate;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label planeLabel;
+        private System.Windows.Forms.Label pilotLabel;
+        private System.Windows.Forms.Label instructorLabel;
+        private System.Windows.Forms.Label planeTypeLabel;
+        private System.Windows.Forms.Label pilotNameLabel;
+        private System.Windows.Forms.Label instructorNameLabel;
+        private System.Windows.Forms.Label pilotSurnameLabel;
+        private System.Windows.Forms.Label instructorSurnameLabel;
     }
 }

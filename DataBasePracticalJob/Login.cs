@@ -59,7 +59,7 @@ namespace DataBasePracticalJob
                         help = 1;
                         this.Hide();
                         admins[i].SetList(admins[i]);
-                        State.ActiveAdmin = admins[i];
+                        State.ActiveWorker = admins[i];
                         admins[i].SetID(0);
                         MainAdmin system = new MainAdmin();
                         system.ShowDialog();
@@ -73,7 +73,7 @@ namespace DataBasePracticalJob
                         help = 1;
                         this.Hide();
                         instructors[i].SetList(instructors[i]);
-                        State.ActiveInstructor = instructors[i];
+                        State.ActiveWorker = instructors[i];
                         MainWorker system = new MainWorker();
                         system.ShowDialog();
                         this.Close();
@@ -86,7 +86,7 @@ namespace DataBasePracticalJob
                         help = 1;
                         this.Hide();
                         pilots[i].SetList(pilots[i]);
-                        State.ActivePilot = pilots[i];
+                        State.ActiveWorker = pilots[i];
                         MainWorker system = new MainWorker();
                         system.ShowDialog();
                         this.Close();
@@ -97,6 +97,11 @@ namespace DataBasePracticalJob
                     MessageBox.Show("Wrong username or password!");
                 }
             }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -78,5 +78,28 @@ namespace DataBasePracticalJob
                 cnn.Execute("insert into Schedule values (@ID, @admin, @client,  @instructor, @pilot, @plane, @date)", cl);
             }
         }
+        public static List<Equipment> GetEquipment()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<Equipment>("select * from Equipment", new DynamicParameters());
+                return output.ToList();
+            }
+        }
+        public static void SaveEquipment(Equipment cl)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                cnn.Execute("insert into Schedule values (@ID, @admin, @filming, @photographing, @price)", cl);
+            }
+        }
+        public static List<JumpType> GetJumpType()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<JumpType>("select * from JumpType", new DynamicParameters());
+                return output.ToList();
+            }
+        }
     }
 }

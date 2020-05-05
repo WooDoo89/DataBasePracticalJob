@@ -122,6 +122,9 @@
     <EmbeddedResource Include="MainClient.resx">
       <DependentUpon>MainClient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MainWorker.resx">
+      <DependentUpon>MainWorker.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -121,5 +121,10 @@ namespace DataBasePracticalJob
         {
             Close();
         }
+
+        private void Registrate_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

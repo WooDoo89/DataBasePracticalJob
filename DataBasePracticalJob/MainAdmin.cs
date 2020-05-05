@@ -18,31 +18,39 @@ namespace DataBasePracticalJob
         List<Pilot> pilots = new List<Pilot>();
         List<Plane> planes = new List<Plane>();
         List<Schedule> schedules = new List<Schedule>();
-        List<string> itemList = new List<string>();
+        List<Equipment> equipments = new List<Equipment>();
+        List<string> dateList = new List<string>();
+        List<string> equipmentList = new List<string>();
         DateTime TodayDate = DateTime.Today;
         public MainAdmin()
         {
             InitializeComponent();
-            ShowData();
-            RefreshGroupList();
+            UpdateData();
+            FillData();
+            RefreshDateList();
+            RefreshEquipmentList();
         }
-
-        private void ShowData()
+        private void FillData()
         {
-            idLabel.Text = Convert.ToString(State.ActiveAdmin.ID);
-            nameLabel.Text = Convert.ToString(State.ActiveAdmin.name);
-            lastnameLabel.Text = Convert.ToString(State.ActiveAdmin.surname);
-            usernameLabel.Text = Convert.ToString(State.ActiveAdmin.username);
-            emailLabel.Text = Convert.ToString(State.ActiveAdmin.email);
-            numberLabel.Text = Convert.ToString(State.ActiveAdmin.mobileNumber);
-            
 
-            clients = DataBase.GetClient();
-            admins = DataBase.GetAdmin();
-            instructors = DataBase.GetInstructor();
-            pilots = DataBase.GetPilot();
-            planes = DataBase.GetPlane();
-            schedules = DataBase.GetSchedule();
+            idLabel.Text = Convert.ToString(State.ActiveWorker.ID);
+            nameLabel.Text = Convert.ToString(State.ActiveWorker.name);
+            lastnameLabel.Text = Convert.ToString(State.ActiveWorker.surname);
+            usernameLabel.Text = Convert.ToString(State.ActiveWorker.username);
+            emailLabel.Text = Convert.ToString(State.ActiveWorker.email);
+            numberLabel.Text = Convert.ToString(State.ActiveWorker.mobileNumber);
+            dateTimePicker1.MinDate = TodayDate;
+
+            for (int i = 0; i < schedules.Count; i++)
+            {
+                dateList.Add(schedules[i].ID + " " + schedules[i].date);
+            }
+
+            for (int i = 0; i < equipments.Count; i++)
+            {
+                equipmentList.Add(equipments[i].ID + " " + equipments[i].filming + " " + equipments[i].photographing + " " + equipments[i].price);
+            }
+
             for (int i = 0; i < clients.Count; i++)
             {
                 checkedClients.Items.Add(Convert.ToString(clients[i].ID + " " + clients[i].name + " " + clients[i].surname));
@@ -58,7 +66,6 @@ namespace DataBasePracticalJob
                 checkedPilots.Items.Add(Convert.ToString(pilots[i].ID + " " + pilots[i].name + " " + pilots[i].surname));
             }
 
-
             for (int i = 0; i < pilots.Count; i++)
             {
                 comboPilot.Items.Add(pilots[i].name + " " + pilots[i].surname);
@@ -73,10 +80,84 @@ namespace DataBasePracticalJob
             {
                 comboPlane.Items.Add(planes[i].type);
             }
-                        
+
+            for (int i = 0; i < planes.Count; i++)
+            {
+                checkedPlanes.Items.Add(Convert.ToString(planes[i].ID + " " + planes[i].type + " " + planes[i].place));
+            }
+
         }
 
-        
+        private void UpdateData()
+        {
+
+            clients = DataBase.GetClient();
+            admins = DataBase.GetAdmin();
+            instructors = DataBase.GetInstructor();
+            pilots = DataBase.GetPilot();
+            planes = DataBase.GetPlane();
+            schedules = DataBase.GetSchedule();
+            equipments = DataBase.GetEquipment();
+      
+        }
+
+        private void confirmButton_Click(object sender, EventArgs e)
+        {
+            string theDate = dateTimePicker1.Value.ToShortDateString();
+
+            if (Convert.ToString(comboPilot.SelectedItem) == "" || Convert.ToString(comboPlane.SelectedItem) == "" || Convert.ToString(comboInstructor.SelectedItem) == "")
+            {
+                MessageBox.Show("Please check if all data is correct");
+            }
+            else
+            {
+
+                Schedule newSchedule = new Schedule();
+                newSchedule.ID = schedules.Count;
+                newSchedule.admin = 0;
+                newSchedule.plane = comboPlane.SelectedIndex;
+                newSchedule.pilot = comboPilot.SelectedIndex;
+                newSchedule.client = 0;
+                newSchedule.instructor = comboInstructor.SelectedIndex;
+                newSchedule.date = theDate;
+                DataBase.SaveSchedule(newSchedule);
+                dateList.Add(newSchedule.ID + " " + theDate);
+                RefreshDateList();
+                UpdateData();
+
+            }
+        }
+            private void RefreshDateList()
+            {
+                checkedSchedule.Items.Clear();
+                checkedSchedule.Items.AddRange(dateList.ToArray());
+            }
+        private void RefreshEquipmentList()
+        {
+            checkedEquipment.Items.Clear();
+            checkedEquipment.Items.AddRange(equipmentList.ToArray());
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkedSchedule_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void equipmentList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkedEquipment_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
         private void usernameLabel_Click(object sender, EventArgs e)
         {
 
@@ -84,7 +165,7 @@ namespace DataBasePracticalJob
 
         private void profileTab_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void clientsTab_Click(object sender, EventArgs e)
@@ -112,58 +193,12 @@ namespace DataBasePracticalJob
 
         }
 
-        private void checkedSchedule_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void label9_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void confirmButton_Click(object sender, EventArgs e)
-        {
-            if (Convert.ToString(comboPilot.SelectedItem) == "" || Convert.ToString(comboPlane.SelectedItem) == "" || Convert.ToString(comboInstructor.SelectedItem) == "" || dateTimePicker1.Value <= TodayDate)
-            {
-                MessageBox.Show("Please check if all data is correct");
-            }
-            else
-            {
-
-                Schedule newSchedule = new Schedule();
-                newSchedule.ID = schedules.Count;
-                newSchedule.admin = 0;
-                newSchedule.plane = comboPlane.SelectedIndex;
-                newSchedule.pilot = comboPilot.SelectedIndex;
-                newSchedule.client = 0;
-                newSchedule.instructor = comboInstructor.SelectedIndex;
-                newSchedule.date = Convert.ToString(dateTimePicker1.Value);
-                DataBase.SaveSchedule(newSchedule);
-                itemList.Add(newSchedule.ID + " " + Convert.ToString(dateTimePicker1.Value));
-                RefreshGroupList();
-
-            }
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-            private void RefreshGroupList()
-            {
-                checkedSchedule.Items.Clear();
-                checkedSchedule.Items.AddRange(schedules.ToArray());
-            }
-
-        private void checkedSchedule_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void label8_Click(object sender, EventArgs e)
         {
 
         }

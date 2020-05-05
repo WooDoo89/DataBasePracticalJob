@@ -49,23 +49,28 @@
             this.pilotsTab = new System.Windows.Forms.TabPage();
             this.checkedPilots = new System.Windows.Forms.CheckedListBox();
             this.scheduleTab = new System.Windows.Forms.TabPage();
+            this.checkedSchedule = new System.Windows.Forms.ListBox();
             this.confirmButton = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.comboInstructor = new System.Windows.Forms.ComboBox();
             this.comboPlane = new System.Windows.Forms.ComboBox();
             this.comboPilot = new System.Windows.Forms.ComboBox();
             this.equipment = new System.Windows.Forms.TabPage();
-            this.checkedSchedule = new System.Windows.Forms.ListBox();
+            this.checkedEquipment = new System.Windows.Forms.ListBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.planeTab = new System.Windows.Forms.TabPage();
+            this.checkedPlanes = new System.Windows.Forms.CheckedListBox();
             this.tabControl1.SuspendLayout();
             this.profileTab.SuspendLayout();
             this.clientsTab.SuspendLayout();
             this.instructorsTab.SuspendLayout();
             this.pilotsTab.SuspendLayout();
             this.scheduleTab.SuspendLayout();
+            this.equipment.SuspendLayout();
+            this.planeTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -74,6 +79,7 @@
             this.tabControl1.Controls.Add(this.clientsTab);
             this.tabControl1.Controls.Add(this.instructorsTab);
             this.tabControl1.Controls.Add(this.pilotsTab);
+            this.tabControl1.Controls.Add(this.planeTab);
             this.tabControl1.Controls.Add(this.scheduleTab);
             this.tabControl1.Controls.Add(this.equipment);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
@@ -108,7 +114,7 @@
             // idLabel
             // 
             this.idLabel.AutoSize = true;
-            this.idLabel.Location = new System.Drawing.Point(100, 42);
+            this.idLabel.Location = new System.Drawing.Point(95, 16);
             this.idLabel.Name = "idLabel";
             this.idLabel.Size = new System.Drawing.Size(0, 13);
             this.idLabel.TabIndex = 12;
@@ -116,7 +122,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(22, 42);
+            this.label6.Location = new System.Drawing.Point(17, 16);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(21, 13);
             this.label6.TabIndex = 11;
@@ -125,7 +131,7 @@
             // numberLabel
             // 
             this.numberLabel.AutoSize = true;
-            this.numberLabel.Location = new System.Drawing.Point(100, 184);
+            this.numberLabel.Location = new System.Drawing.Point(95, 158);
             this.numberLabel.Name = "numberLabel";
             this.numberLabel.Size = new System.Drawing.Size(0, 13);
             this.numberLabel.TabIndex = 10;
@@ -133,7 +139,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 184);
+            this.label1.Location = new System.Drawing.Point(17, 158);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 9;
@@ -142,7 +148,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(22, 154);
+            this.label5.Location = new System.Drawing.Point(17, 128);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(35, 13);
             this.label5.TabIndex = 8;
@@ -151,7 +157,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 126);
+            this.label4.Location = new System.Drawing.Point(17, 100);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 13);
             this.label4.TabIndex = 7;
@@ -160,7 +166,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(22, 96);
+            this.label3.Location = new System.Drawing.Point(17, 70);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 6;
@@ -169,7 +175,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 67);
+            this.label2.Location = new System.Drawing.Point(17, 41);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 5;
@@ -178,7 +184,7 @@
             // emailLabel
             // 
             this.emailLabel.AutoSize = true;
-            this.emailLabel.Location = new System.Drawing.Point(100, 154);
+            this.emailLabel.Location = new System.Drawing.Point(95, 128);
             this.emailLabel.Name = "emailLabel";
             this.emailLabel.Size = new System.Drawing.Size(0, 13);
             this.emailLabel.TabIndex = 3;
@@ -186,7 +192,7 @@
             // lastnameLabel
             // 
             this.lastnameLabel.AutoSize = true;
-            this.lastnameLabel.Location = new System.Drawing.Point(100, 126);
+            this.lastnameLabel.Location = new System.Drawing.Point(95, 100);
             this.lastnameLabel.Name = "lastnameLabel";
             this.lastnameLabel.Size = new System.Drawing.Size(0, 13);
             this.lastnameLabel.TabIndex = 2;
@@ -194,7 +200,7 @@
             // usernameLabel
             // 
             this.usernameLabel.AutoSize = true;
-            this.usernameLabel.Location = new System.Drawing.Point(100, 67);
+            this.usernameLabel.Location = new System.Drawing.Point(95, 41);
             this.usernameLabel.Name = "usernameLabel";
             this.usernameLabel.Size = new System.Drawing.Size(0, 13);
             this.usernameLabel.TabIndex = 1;
@@ -203,7 +209,7 @@
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(100, 96);
+            this.nameLabel.Location = new System.Drawing.Point(95, 70);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(0, 13);
             this.nameLabel.TabIndex = 0;
@@ -269,13 +275,13 @@
             // 
             // scheduleTab
             // 
-            this.scheduleTab.Controls.Add(this.checkedSchedule);
-            this.scheduleTab.Controls.Add(this.confirmButton);
             this.scheduleTab.Controls.Add(this.label10);
-            this.scheduleTab.Controls.Add(this.dateTimePicker1);
             this.scheduleTab.Controls.Add(this.label9);
             this.scheduleTab.Controls.Add(this.label8);
             this.scheduleTab.Controls.Add(this.label7);
+            this.scheduleTab.Controls.Add(this.checkedSchedule);
+            this.scheduleTab.Controls.Add(this.confirmButton);
+            this.scheduleTab.Controls.Add(this.dateTimePicker1);
             this.scheduleTab.Controls.Add(this.comboInstructor);
             this.scheduleTab.Controls.Add(this.comboPlane);
             this.scheduleTab.Controls.Add(this.comboPilot);
@@ -285,6 +291,15 @@
             this.scheduleTab.TabIndex = 4;
             this.scheduleTab.Text = "Schedule";
             this.scheduleTab.UseVisualStyleBackColor = true;
+            // 
+            // checkedSchedule
+            // 
+            this.checkedSchedule.FormattingEnabled = true;
+            this.checkedSchedule.Location = new System.Drawing.Point(3, 3);
+            this.checkedSchedule.Name = "checkedSchedule";
+            this.checkedSchedule.Size = new System.Drawing.Size(420, 199);
+            this.checkedSchedule.TabIndex = 10;
+            this.checkedSchedule.SelectedIndexChanged += new System.EventHandler(this.checkedSchedule_SelectedIndexChanged_1);
             // 
             // confirmButton
             // 
@@ -296,15 +311,6 @@
             this.confirmButton.UseVisualStyleBackColor = true;
             this.confirmButton.Click += new System.EventHandler(this.confirmButton_Click);
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(393, 206);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(30, 13);
-            this.label10.TabIndex = 9;
-            this.label10.Text = "Date";
-            // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(396, 222);
@@ -312,36 +318,8 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 7;
+            this.dateTimePicker1.Value = new System.DateTime(2020, 5, 5, 15, 12, 36, 0);
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(139, 205);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(34, 13);
-            this.label9.TabIndex = 6;
-            this.label9.Text = "Plane";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(266, 206);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(51, 13);
-            this.label8.TabIndex = 5;
-            this.label8.Text = "Instructor";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 205);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(27, 13);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Pilot";
             // 
             // comboInstructor
             // 
@@ -369,6 +347,7 @@
             // 
             // equipment
             // 
+            this.equipment.Controls.Add(this.checkedEquipment);
             this.equipment.Location = new System.Drawing.Point(4, 22);
             this.equipment.Name = "equipment";
             this.equipment.Size = new System.Drawing.Size(768, 400);
@@ -376,14 +355,68 @@
             this.equipment.Text = "Equipment";
             this.equipment.UseVisualStyleBackColor = true;
             // 
-            // checkedSchedule
+            // checkedEquipment
             // 
-            this.checkedSchedule.FormattingEnabled = true;
-            this.checkedSchedule.Location = new System.Drawing.Point(3, 3);
-            this.checkedSchedule.Name = "checkedSchedule";
-            this.checkedSchedule.Size = new System.Drawing.Size(420, 199);
-            this.checkedSchedule.TabIndex = 10;
-            this.checkedSchedule.SelectedIndexChanged += new System.EventHandler(this.checkedSchedule_SelectedIndexChanged_1);
+            this.checkedEquipment.FormattingEnabled = true;
+            this.checkedEquipment.Location = new System.Drawing.Point(3, 3);
+            this.checkedEquipment.Name = "checkedEquipment";
+            this.checkedEquipment.Size = new System.Drawing.Size(420, 199);
+            this.checkedEquipment.TabIndex = 13;
+            this.checkedEquipment.SelectedIndexChanged += new System.EventHandler(this.checkedEquipment_SelectedIndexChanged_1);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(393, 206);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(30, 13);
+            this.label10.TabIndex = 14;
+            this.label10.Text = "Date";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(139, 205);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(34, 13);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "Plane";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(266, 206);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(51, 13);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "Instructor";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 205);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(27, 13);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Pilot";
+            // 
+            // planeTab
+            // 
+            this.planeTab.Controls.Add(this.checkedPlanes);
+            this.planeTab.Location = new System.Drawing.Point(4, 22);
+            this.planeTab.Name = "planeTab";
+            this.planeTab.Size = new System.Drawing.Size(768, 400);
+            this.planeTab.TabIndex = 6;
+            this.planeTab.Text = "Planes";
+            this.planeTab.UseVisualStyleBackColor = true;
+            // 
+            // checkedPlanes
+            // 
+            this.checkedPlanes.FormattingEnabled = true;
+            this.checkedPlanes.Location = new System.Drawing.Point(3, 3);
+            this.checkedPlanes.Name = "checkedPlanes";
+            this.checkedPlanes.Size = new System.Drawing.Size(392, 394);
+            this.checkedPlanes.TabIndex = 4;
             // 
             // MainAdmin
             // 
@@ -401,6 +434,8 @@
             this.pilotsTab.ResumeLayout(false);
             this.scheduleTab.ResumeLayout(false);
             this.scheduleTab.PerformLayout();
+            this.equipment.ResumeLayout(false);
+            this.planeTab.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -429,15 +464,18 @@
         private System.Windows.Forms.CheckedListBox checkedClients;
         private System.Windows.Forms.CheckedListBox checkedInstructors;
         private System.Windows.Forms.CheckedListBox checkedPilots;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboInstructor;
         private System.Windows.Forms.ComboBox comboPlane;
         private System.Windows.Forms.ComboBox comboPilot;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button confirmButton;
+        private System.Windows.Forms.ListBox checkedSchedule;
+        private System.Windows.Forms.ListBox checkedEquipment;
+        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button confirmButton;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ListBox checkedSchedule;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TabPage planeTab;
+        private System.Windows.Forms.CheckedListBox checkedPlanes;
     }
 }

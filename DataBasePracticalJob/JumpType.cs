@@ -8,8 +8,8 @@ namespace DataBasePracticalJob
 {
     class JumpType
     {
-        private int ID { get; set; }
-        private Order order { get; set; }
-        private string type { get; set; }
+        public int ID { get; set; }
+        public int order { get; set; }
+        public string type { get; set; }
     }
 }

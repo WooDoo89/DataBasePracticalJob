@@ -8,10 +8,10 @@ namespace DataBasePracticalJob
 {
     class Equipment
     {
-        private int ID { get; set; }
-        private Admin admin { get; set; }
-        private string filming { get; set; }
-        private string photographing { get; set; }
-        private float price { get; set; }
+        public int ID { get; set; }
+        public int admin { get; set; }
+        public string filming { get; set; }
+        public string photographing { get; set; }
+        public float price { get; set; }
     }
 }

@@ -286,6 +286,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Registrate";
             this.Text = "Registrate";
+            this.Load += new System.EventHandler(this.Registrate_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
