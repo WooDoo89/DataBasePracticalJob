@@ -105,7 +105,7 @@ namespace DataBasePracticalJob
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<Order>("select * from Order", new DynamicParameters());
+                var output = cnn.Query<Order>("select * from Orders", new DynamicParameters());
                 return output.ToList();
             }
         }

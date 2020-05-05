@@ -8,9 +8,9 @@ namespace DataBasePracticalJob
 {
     class Review
     {
-        private int ID { get; set; }
-        private Order order { get; set; }
-        private string instructor { get; set; }
-        private string jump { get; set; }
+        public int ID { get; set; }
+        public int order { get; set; }
+        public string instructor { get; set; }
+        public string jump { get; set; }
     }
 }

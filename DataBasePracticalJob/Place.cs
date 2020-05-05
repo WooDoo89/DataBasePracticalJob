@@ -8,9 +8,9 @@ namespace DataBasePracticalJob
 {
      public class Place
     {
-        private string postCode { get; set; }
-        private int buildingNR { get; set; }
-        private string street { get; set; }
-        private int cityCode { get; set; }
+        public string postCode { get; set; }
+        public int buildingNR { get; set; }
+        public string street { get; set; }
+        public int cityCode { get; set; }
     }
 }

@@ -9,7 +9,6 @@ namespace DataBasePracticalJob
     class JumpType
     {
         public int ID { get; set; }
-        public int order { get; set; }
         public string type { get; set; }
     }
 }

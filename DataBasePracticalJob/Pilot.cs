@@ -8,25 +8,6 @@ namespace DataBasePracticalJob
 {
      class Pilot : Human
     {
-        public Place place { get; set; }
-
-        protected static Pilot p;
-        protected static int thisPilotID;
-        public void SetList(Pilot P)
-        {
-            p = P;
-        }
-        public Pilot GetList()
-        {
-            return p;
-        }
-        public void SetID(int id)
-        {
-            thisPilotID = id;
-        }
-        public int GetID()
-        {
-            return thisPilotID;
-        }
+        public string place { get; set; }
     }
 }

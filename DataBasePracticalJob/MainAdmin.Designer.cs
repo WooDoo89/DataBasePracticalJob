@@ -65,6 +65,7 @@
             this.equipmentListBox = new System.Windows.Forms.ListBox();
             this.orderTab = new System.Windows.Forms.TabPage();
             this.orderListBox = new System.Windows.Forms.ListBox();
+            this.logoutButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.profileTab.SuspendLayout();
             this.clientsTab.SuspendLayout();
@@ -94,6 +95,7 @@
             // 
             // profileTab
             // 
+            this.profileTab.Controls.Add(this.logoutButton);
             this.profileTab.Controls.Add(this.idLabel);
             this.profileTab.Controls.Add(this.label6);
             this.profileTab.Controls.Add(this.numberLabel);
@@ -442,6 +444,16 @@
             this.orderListBox.TabIndex = 14;
             this.orderListBox.SelectedIndexChanged += new System.EventHandler(this.orderListBox_SelectedIndexChanged);
             // 
+            // logoutButton
+            // 
+            this.logoutButton.Location = new System.Drawing.Point(687, 6);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(75, 23);
+            this.logoutButton.TabIndex = 13;
+            this.logoutButton.Text = "Logout";
+            this.logoutButton.UseVisualStyleBackColor = true;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
+            // 
             // MainAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -504,5 +516,6 @@
         private System.Windows.Forms.ListBox orderListBox;
         private System.Windows.Forms.ListBox equipmentListBox;
         private System.Windows.Forms.ListBox scheduleListBox;
+        private System.Windows.Forms.Button logoutButton;
     }
 }

@@ -45,7 +45,6 @@ namespace DataBasePracticalJob
                     {
                         help = 1;
                         this.Hide();
-                        clients[i].SetList(clients[i]);
                         State.ActiveClient = clients[i];
                         MainClient system = new MainClient();
                         system.ShowDialog();
@@ -58,9 +57,7 @@ namespace DataBasePracticalJob
                     {
                         help = 1;
                         this.Hide();
-                        admins[i].SetList(admins[i]);
                         State.ActiveWorker = admins[i];
-                        admins[i].SetID(0);
                         MainAdmin system = new MainAdmin();
                         system.ShowDialog();
                         this.Close();
@@ -72,7 +69,6 @@ namespace DataBasePracticalJob
                     {
                         help = 1;
                         this.Hide();
-                        instructors[i].SetList(instructors[i]);
                         State.ActiveWorker = instructors[i];
                         MainWorker system = new MainWorker();
                         system.ShowDialog();
@@ -85,7 +81,6 @@ namespace DataBasePracticalJob
                     {
                         help = 1;
                         this.Hide();
-                        pilots[i].SetList(pilots[i]);
                         State.ActiveWorker = pilots[i];
                         MainWorker system = new MainWorker();
                         system.ShowDialog();

@@ -8,10 +8,12 @@ namespace DataBasePracticalJob
 {
     class Coupon
     {
-        private int ID { get; set; }
-        private Client client { get; set; }
-        private Admin admin { get; set; }
-        // ??? private string gavejo duomenis
-        private string couponDescription { get; set; }
+        public int ID { get; set; }
+        public int client { get; set; }
+        public int admin { get; set; }
+        public string name { get; set; }
+        public string surname { get; set; }
+        public float height { get; set; }
+        public float weight { get; set; }
     }
 }

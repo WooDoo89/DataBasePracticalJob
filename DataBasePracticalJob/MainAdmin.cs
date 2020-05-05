@@ -20,6 +20,7 @@ namespace DataBasePracticalJob
         List<Plane> planes = new List<Plane>();
         List<Schedule> schedules = new List<Schedule>();
         List<Equipment> equipments = new List<Equipment>();
+        List<JumpType> jumpType = new List<JumpType>();
         List<string> dateList = new List<string>();
         List<string> equipmentList = new List<string>();
         List<string> ordertList = new List<string>();
@@ -44,10 +45,14 @@ namespace DataBasePracticalJob
             numberLabel.Text = Convert.ToString(State.ActiveWorker.mobileNumber);
             dateTimePicker1.MinDate = TodayDate;
 
-            //for (int i = 0; i < orders.Count; i++)
-            //{
-            //    ordertList.Add(orders[i].ID + " " + orders[i].client + " " + orders[i].instructor + " " + orders[i].pilot + " " + orders[i].plane + " " + orders[i].schedule + " " + orders[i].status + " " + orders[i].peopleNumber);
-            //}
+            for (int i = 0; i < orders.Count; i++)
+            {
+                ordertList.Add("Orders ID: " + orders[i].ID + "\nCoupon: " + orders[i].coupon + "\nSelected date: " + schedules[orders[i].schedule].ID + " " + schedules[orders[i].schedule].date
+                    + "\nStatus: " + orders[i].status + "\nPeople number: " + orders[i].peopleNumber + "\nJump type: " + jumpType[orders[i].jumpType].type
+                    + "\nEquipment: " + equipments[orders[i].equipment].ID + " " + equipments[orders[i].equipment].filming + " " + equipments[orders[i].equipment].photographing
+                    + " " + equipments[orders[i].equipment].price);
+                ordertList.Add("-----------------------------------------------");
+            }
 
             for (int i = 0; i < schedules.Count; i++)
             {
@@ -106,7 +111,8 @@ namespace DataBasePracticalJob
             planes = DataBase.GetPlane();
             schedules = DataBase.GetSchedule();
             equipments = DataBase.GetEquipment();
-           // orders = DataBase.GetOrder();
+            orders = DataBase.GetOrder();
+            jumpType = DataBase.GetJumpType();
         }
 
         private void confirmButton_Click(object sender, EventArgs e)
@@ -208,6 +214,11 @@ namespace DataBasePracticalJob
         private void comboPlane_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

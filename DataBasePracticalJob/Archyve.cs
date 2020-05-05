@@ -8,8 +8,8 @@ namespace DataBasePracticalJob
 {
     class Archyve
     {
-        private int ID { get; set; }
-        private Admin admin { get; set; }
-        private Client client { get; set; }
+        public int ID { get; set; }
+        public int admin { get; set; }
+        public int additionalJumper { get; set; }
     }
 }
