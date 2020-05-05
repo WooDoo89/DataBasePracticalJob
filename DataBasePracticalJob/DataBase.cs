@@ -101,5 +101,20 @@ namespace DataBasePracticalJob
                 return output.ToList();
             }
         }
+        public static List<Order> GetOrder()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<Order>("select * from Order", new DynamicParameters());
+                return output.ToList();
+            }
+        }
+        public static void SaveOrder(Order cl)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                cnn.Execute("insert into Schedule values (@ID, @admin, @pilot, @instructor, @coupon, @schedule, @plane, @client, @jumpType, @peopleNubmer, @status, @equipment)", cl);
+            }
+        }
     }
 }

@@ -13,6 +13,7 @@ namespace DataBasePracticalJob
     public partial class MainAdmin : Form
     {
         List<Client> clients = new List<Client>();
+        List<Order> orders = new List<Order>();
         List<Admin> admins = new List<Admin>();
         List<Instructor> instructors = new List<Instructor>();
         List<Pilot> pilots = new List<Pilot>();
@@ -21,6 +22,7 @@ namespace DataBasePracticalJob
         List<Equipment> equipments = new List<Equipment>();
         List<string> dateList = new List<string>();
         List<string> equipmentList = new List<string>();
+        List<string> ordertList = new List<string>();
         DateTime TodayDate = DateTime.Today;
         public MainAdmin()
         {
@@ -29,6 +31,7 @@ namespace DataBasePracticalJob
             FillData();
             RefreshDateList();
             RefreshEquipmentList();
+            RefreshOrderList();
         }
         private void FillData()
         {
@@ -40,6 +43,11 @@ namespace DataBasePracticalJob
             emailLabel.Text = Convert.ToString(State.ActiveWorker.email);
             numberLabel.Text = Convert.ToString(State.ActiveWorker.mobileNumber);
             dateTimePicker1.MinDate = TodayDate;
+
+            //for (int i = 0; i < orders.Count; i++)
+            //{
+            //    ordertList.Add(orders[i].ID + " " + orders[i].client + " " + orders[i].instructor + " " + orders[i].pilot + " " + orders[i].plane + " " + orders[i].schedule + " " + orders[i].status + " " + orders[i].peopleNumber);
+            //}
 
             for (int i = 0; i < schedules.Count; i++)
             {
@@ -98,7 +106,7 @@ namespace DataBasePracticalJob
             planes = DataBase.GetPlane();
             schedules = DataBase.GetSchedule();
             equipments = DataBase.GetEquipment();
-      
+           // orders = DataBase.GetOrder();
         }
 
         private void confirmButton_Click(object sender, EventArgs e)
@@ -127,33 +135,27 @@ namespace DataBasePracticalJob
 
             }
         }
-            private void RefreshDateList()
-            {
-                checkedSchedule.Items.Clear();
-                checkedSchedule.Items.AddRange(dateList.ToArray());
-            }
+        private void RefreshDateList()
+        {
+            scheduleListBox.Items.Clear();
+            scheduleListBox.Items.AddRange(dateList.ToArray());
+        }
         private void RefreshEquipmentList()
         {
-            checkedEquipment.Items.Clear();
-            checkedEquipment.Items.AddRange(equipmentList.ToArray());
+            equipmentListBox.Items.Clear();
+            equipmentListBox.Items.AddRange(equipmentList.ToArray());
         }
-
+        private void RefreshOrderList()
+        {
+            orderListBox.Items.Clear();
+            orderListBox.Items.AddRange(ordertList.ToArray());
+        }
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
         }
 
         private void checkedSchedule_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void equipmentList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkedEquipment_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
         }
@@ -178,11 +180,6 @@ namespace DataBasePracticalJob
 
         }
 
-        private void checkedListBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void checkedInstructors_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -193,12 +190,22 @@ namespace DataBasePracticalJob
 
         }
 
-        private void label9_Click(object sender, EventArgs e)
+        private void equipmentListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void label8_Click(object sender, EventArgs e)
+        private void scheduleListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void orderListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboPlane_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

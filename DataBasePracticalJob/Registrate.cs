@@ -45,7 +45,7 @@ namespace DataBasePracticalJob
 
                 Client newClient = new Client();
                 newClient.ID = clients.Count;
-                newClient.admin = 0;
+                newClient.admin = 1;
                 newClient.username = usernameTextBox.Text;
                 newClient.password = passwordTextBox.Text;
                 newClient.name = nameTextBox.Text;

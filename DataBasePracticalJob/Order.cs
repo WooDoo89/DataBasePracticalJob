@@ -17,8 +17,10 @@ namespace DataBasePracticalJob
         public int plane { get; set; }
         public int client { get; set; }
         public int jumpType { get; set; }
-        public int equipment { get; set; }
-        public int peopleNumber { get; set; }
+        public int peopleNumber { get; set; } 
         public string status { get; set; }
+        public int equipment { get; set; }
+        
+       
     }
 }

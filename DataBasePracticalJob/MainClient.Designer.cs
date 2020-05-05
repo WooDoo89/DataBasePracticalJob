@@ -47,22 +47,23 @@
             this.usernameLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
             this.scheduleTab = new System.Windows.Forms.TabPage();
-            this.comboEquipment = new System.Windows.Forms.ComboBox();
-            this.couponNumber = new System.Windows.Forms.TextBox();
-            this.comboJumpType = new System.Windows.Forms.ComboBox();
-            this.comboDate = new System.Windows.Forms.ComboBox();
+            this.pilotSurnameLabel = new System.Windows.Forms.Label();
+            this.instructorSurnameLabel = new System.Windows.Forms.Label();
+            this.planeTypeLabel = new System.Windows.Forms.Label();
+            this.pilotNameLabel = new System.Windows.Forms.Label();
+            this.instructorNameLabel = new System.Windows.Forms.Label();
+            this.planeLabel = new System.Windows.Forms.Label();
+            this.pilotLabel = new System.Windows.Forms.Label();
+            this.instructorLabel = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.instructorLabel = new System.Windows.Forms.Label();
-            this.pilotLabel = new System.Windows.Forms.Label();
-            this.planeLabel = new System.Windows.Forms.Label();
-            this.instructorNameLabel = new System.Windows.Forms.Label();
-            this.pilotNameLabel = new System.Windows.Forms.Label();
-            this.planeTypeLabel = new System.Windows.Forms.Label();
-            this.instructorSurnameLabel = new System.Windows.Forms.Label();
-            this.pilotSurnameLabel = new System.Windows.Forms.Label();
+            this.comboDate = new System.Windows.Forms.ComboBox();
+            this.comboEquipment = new System.Windows.Forms.ComboBox();
+            this.couponNumber = new System.Windows.Forms.TextBox();
+            this.comboJumpType = new System.Windows.Forms.ComboBox();
+            this.makeOrderButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.profileTab.SuspendLayout();
             this.scheduleTab.SuspendLayout();
@@ -243,6 +244,7 @@
             // 
             // scheduleTab
             // 
+            this.scheduleTab.Controls.Add(this.makeOrderButton);
             this.scheduleTab.Controls.Add(this.pilotSurnameLabel);
             this.scheduleTab.Controls.Add(this.instructorSurnameLabel);
             this.scheduleTab.Controls.Add(this.planeTypeLabel);
@@ -266,38 +268,84 @@
             this.scheduleTab.Text = "Schedule";
             this.scheduleTab.UseVisualStyleBackColor = true;
             // 
-            // comboEquipment
+            // pilotSurnameLabel
             // 
-            this.comboEquipment.FormattingEnabled = true;
-            this.comboEquipment.Location = new System.Drawing.Point(363, 21);
-            this.comboEquipment.Name = "comboEquipment";
-            this.comboEquipment.Size = new System.Drawing.Size(196, 21);
-            this.comboEquipment.TabIndex = 7;
+            this.pilotSurnameLabel.AutoSize = true;
+            this.pilotSurnameLabel.Location = new System.Drawing.Point(653, 68);
+            this.pilotSurnameLabel.Name = "pilotSurnameLabel";
+            this.pilotSurnameLabel.Size = new System.Drawing.Size(0, 13);
+            this.pilotSurnameLabel.TabIndex = 21;
             // 
-            // couponNumber
+            // instructorSurnameLabel
             // 
-            this.couponNumber.Location = new System.Drawing.Point(257, 21);
-            this.couponNumber.Name = "couponNumber";
-            this.couponNumber.Size = new System.Drawing.Size(100, 20);
-            this.couponNumber.TabIndex = 6;
-            this.couponNumber.TextChanged += new System.EventHandler(this.couponNumber_TextChanged);
+            this.instructorSurnameLabel.AutoSize = true;
+            this.instructorSurnameLabel.Location = new System.Drawing.Point(653, 37);
+            this.instructorSurnameLabel.Name = "instructorSurnameLabel";
+            this.instructorSurnameLabel.Size = new System.Drawing.Size(0, 13);
+            this.instructorSurnameLabel.TabIndex = 20;
             // 
-            // comboJumpType
+            // planeTypeLabel
             // 
-            this.comboJumpType.FormattingEnabled = true;
-            this.comboJumpType.Location = new System.Drawing.Point(130, 21);
-            this.comboJumpType.Name = "comboJumpType";
-            this.comboJumpType.Size = new System.Drawing.Size(121, 21);
-            this.comboJumpType.TabIndex = 1;
+            this.planeTypeLabel.AutoSize = true;
+            this.planeTypeLabel.Location = new System.Drawing.Point(653, 89);
+            this.planeTypeLabel.Name = "planeTypeLabel";
+            this.planeTypeLabel.Size = new System.Drawing.Size(0, 13);
+            this.planeTypeLabel.TabIndex = 19;
             // 
-            // comboDate
+            // pilotNameLabel
             // 
-            this.comboDate.FormattingEnabled = true;
-            this.comboDate.Location = new System.Drawing.Point(3, 21);
-            this.comboDate.Name = "comboDate";
-            this.comboDate.Size = new System.Drawing.Size(121, 21);
-            this.comboDate.TabIndex = 9;
-            this.comboDate.SelectedIndexChanged += new System.EventHandler(this.comboDate_SelectedIndexChanged);
+            this.pilotNameLabel.AutoSize = true;
+            this.pilotNameLabel.Location = new System.Drawing.Point(653, 55);
+            this.pilotNameLabel.Name = "pilotNameLabel";
+            this.pilotNameLabel.Size = new System.Drawing.Size(0, 13);
+            this.pilotNameLabel.TabIndex = 18;
+            // 
+            // instructorNameLabel
+            // 
+            this.instructorNameLabel.AutoSize = true;
+            this.instructorNameLabel.Location = new System.Drawing.Point(653, 24);
+            this.instructorNameLabel.Name = "instructorNameLabel";
+            this.instructorNameLabel.Size = new System.Drawing.Size(0, 13);
+            this.instructorNameLabel.TabIndex = 17;
+            // 
+            // planeLabel
+            // 
+            this.planeLabel.AutoSize = true;
+            this.planeLabel.Location = new System.Drawing.Point(593, 89);
+            this.planeLabel.Name = "planeLabel";
+            this.planeLabel.Size = new System.Drawing.Size(37, 13);
+            this.planeLabel.TabIndex = 16;
+            this.planeLabel.Text = "Plane:";
+            this.planeLabel.Visible = false;
+            // 
+            // pilotLabel
+            // 
+            this.pilotLabel.AutoSize = true;
+            this.pilotLabel.Location = new System.Drawing.Point(593, 55);
+            this.pilotLabel.Name = "pilotLabel";
+            this.pilotLabel.Size = new System.Drawing.Size(30, 13);
+            this.pilotLabel.TabIndex = 15;
+            this.pilotLabel.Text = "Pilot:";
+            this.pilotLabel.Visible = false;
+            // 
+            // instructorLabel
+            // 
+            this.instructorLabel.AutoSize = true;
+            this.instructorLabel.Location = new System.Drawing.Point(593, 24);
+            this.instructorLabel.Name = "instructorLabel";
+            this.instructorLabel.Size = new System.Drawing.Size(54, 13);
+            this.instructorLabel.TabIndex = 14;
+            this.instructorLabel.Text = "Instructor:";
+            this.instructorLabel.Visible = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(3, 6);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(30, 13);
+            this.label12.TabIndex = 13;
+            this.label12.Text = "Date";
             // 
             // label11
             // 
@@ -326,84 +374,48 @@
             this.label9.TabIndex = 10;
             this.label9.Text = "Jump Type";
             // 
-            // label12
+            // comboDate
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(3, 6);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(30, 13);
-            this.label12.TabIndex = 13;
-            this.label12.Text = "Date";
+            this.comboDate.FormattingEnabled = true;
+            this.comboDate.Location = new System.Drawing.Point(3, 21);
+            this.comboDate.Name = "comboDate";
+            this.comboDate.Size = new System.Drawing.Size(121, 21);
+            this.comboDate.TabIndex = 9;
+            this.comboDate.SelectedIndexChanged += new System.EventHandler(this.comboDate_SelectedIndexChanged);
             // 
-            // instructorLabel
+            // comboEquipment
             // 
-            this.instructorLabel.AutoSize = true;
-            this.instructorLabel.Location = new System.Drawing.Point(593, 24);
-            this.instructorLabel.Name = "instructorLabel";
-            this.instructorLabel.Size = new System.Drawing.Size(54, 13);
-            this.instructorLabel.TabIndex = 14;
-            this.instructorLabel.Text = "Instructor:";
-            this.instructorLabel.Visible = false;
+            this.comboEquipment.FormattingEnabled = true;
+            this.comboEquipment.Location = new System.Drawing.Point(363, 21);
+            this.comboEquipment.Name = "comboEquipment";
+            this.comboEquipment.Size = new System.Drawing.Size(196, 21);
+            this.comboEquipment.TabIndex = 7;
             // 
-            // pilotLabel
+            // couponNumber
             // 
-            this.pilotLabel.AutoSize = true;
-            this.pilotLabel.Location = new System.Drawing.Point(593, 55);
-            this.pilotLabel.Name = "pilotLabel";
-            this.pilotLabel.Size = new System.Drawing.Size(30, 13);
-            this.pilotLabel.TabIndex = 15;
-            this.pilotLabel.Text = "Pilot:";
-            this.pilotLabel.Visible = false;
+            this.couponNumber.Location = new System.Drawing.Point(257, 21);
+            this.couponNumber.Name = "couponNumber";
+            this.couponNumber.Size = new System.Drawing.Size(100, 20);
+            this.couponNumber.TabIndex = 6;
+            this.couponNumber.TextChanged += new System.EventHandler(this.couponNumber_TextChanged);
             // 
-            // planeLabel
+            // comboJumpType
             // 
-            this.planeLabel.AutoSize = true;
-            this.planeLabel.Location = new System.Drawing.Point(593, 89);
-            this.planeLabel.Name = "planeLabel";
-            this.planeLabel.Size = new System.Drawing.Size(37, 13);
-            this.planeLabel.TabIndex = 16;
-            this.planeLabel.Text = "Plane:";
-            this.planeLabel.Visible = false;
+            this.comboJumpType.FormattingEnabled = true;
+            this.comboJumpType.Location = new System.Drawing.Point(130, 21);
+            this.comboJumpType.Name = "comboJumpType";
+            this.comboJumpType.Size = new System.Drawing.Size(121, 21);
+            this.comboJumpType.TabIndex = 1;
             // 
-            // instructorNameLabel
+            // makeOrderButton
             // 
-            this.instructorNameLabel.AutoSize = true;
-            this.instructorNameLabel.Location = new System.Drawing.Point(653, 24);
-            this.instructorNameLabel.Name = "instructorNameLabel";
-            this.instructorNameLabel.Size = new System.Drawing.Size(0, 13);
-            this.instructorNameLabel.TabIndex = 17;
-            // 
-            // pilotNameLabel
-            // 
-            this.pilotNameLabel.AutoSize = true;
-            this.pilotNameLabel.Location = new System.Drawing.Point(653, 55);
-            this.pilotNameLabel.Name = "pilotNameLabel";
-            this.pilotNameLabel.Size = new System.Drawing.Size(0, 13);
-            this.pilotNameLabel.TabIndex = 18;
-            // 
-            // planeTypeLabel
-            // 
-            this.planeTypeLabel.AutoSize = true;
-            this.planeTypeLabel.Location = new System.Drawing.Point(653, 89);
-            this.planeTypeLabel.Name = "planeTypeLabel";
-            this.planeTypeLabel.Size = new System.Drawing.Size(0, 13);
-            this.planeTypeLabel.TabIndex = 19;
-            // 
-            // instructorSurnameLabel
-            // 
-            this.instructorSurnameLabel.AutoSize = true;
-            this.instructorSurnameLabel.Location = new System.Drawing.Point(653, 37);
-            this.instructorSurnameLabel.Name = "instructorSurnameLabel";
-            this.instructorSurnameLabel.Size = new System.Drawing.Size(0, 13);
-            this.instructorSurnameLabel.TabIndex = 20;
-            // 
-            // pilotSurnameLabel
-            // 
-            this.pilotSurnameLabel.AutoSize = true;
-            this.pilotSurnameLabel.Location = new System.Drawing.Point(653, 68);
-            this.pilotSurnameLabel.Name = "pilotSurnameLabel";
-            this.pilotSurnameLabel.Size = new System.Drawing.Size(0, 13);
-            this.pilotSurnameLabel.TabIndex = 21;
+            this.makeOrderButton.Location = new System.Drawing.Point(690, 157);
+            this.makeOrderButton.Name = "makeOrderButton";
+            this.makeOrderButton.Size = new System.Drawing.Size(75, 23);
+            this.makeOrderButton.TabIndex = 22;
+            this.makeOrderButton.Text = "Make Order";
+            this.makeOrderButton.UseVisualStyleBackColor = true;
+            this.makeOrderButton.Click += new System.EventHandler(this.makeOrderButton_Click);
             // 
             // MainClient
             // 
@@ -459,5 +471,6 @@
         private System.Windows.Forms.Label instructorNameLabel;
         private System.Windows.Forms.Label pilotSurnameLabel;
         private System.Windows.Forms.Label instructorSurnameLabel;
+        private System.Windows.Forms.Button makeOrderButton;
     }
 }

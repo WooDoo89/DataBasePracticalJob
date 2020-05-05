@@ -48,29 +48,32 @@
             this.checkedInstructors = new System.Windows.Forms.CheckedListBox();
             this.pilotsTab = new System.Windows.Forms.TabPage();
             this.checkedPilots = new System.Windows.Forms.CheckedListBox();
+            this.planeTab = new System.Windows.Forms.TabPage();
+            this.checkedPlanes = new System.Windows.Forms.CheckedListBox();
             this.scheduleTab = new System.Windows.Forms.TabPage();
-            this.checkedSchedule = new System.Windows.Forms.ListBox();
+            this.scheduleListBox = new System.Windows.Forms.ListBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.confirmButton = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.comboInstructor = new System.Windows.Forms.ComboBox();
             this.comboPlane = new System.Windows.Forms.ComboBox();
             this.comboPilot = new System.Windows.Forms.ComboBox();
             this.equipment = new System.Windows.Forms.TabPage();
-            this.checkedEquipment = new System.Windows.Forms.ListBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.planeTab = new System.Windows.Forms.TabPage();
-            this.checkedPlanes = new System.Windows.Forms.CheckedListBox();
+            this.equipmentListBox = new System.Windows.Forms.ListBox();
+            this.orderTab = new System.Windows.Forms.TabPage();
+            this.orderListBox = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.profileTab.SuspendLayout();
             this.clientsTab.SuspendLayout();
             this.instructorsTab.SuspendLayout();
             this.pilotsTab.SuspendLayout();
+            this.planeTab.SuspendLayout();
             this.scheduleTab.SuspendLayout();
             this.equipment.SuspendLayout();
-            this.planeTab.SuspendLayout();
+            this.orderTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -82,6 +85,7 @@
             this.tabControl1.Controls.Add(this.planeTab);
             this.tabControl1.Controls.Add(this.scheduleTab);
             this.tabControl1.Controls.Add(this.equipment);
+            this.tabControl1.Controls.Add(this.orderTab);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -273,13 +277,31 @@
             this.checkedPilots.TabIndex = 3;
             this.checkedPilots.SelectedIndexChanged += new System.EventHandler(this.checkedPilots_SelectedIndexChanged);
             // 
+            // planeTab
+            // 
+            this.planeTab.Controls.Add(this.checkedPlanes);
+            this.planeTab.Location = new System.Drawing.Point(4, 22);
+            this.planeTab.Name = "planeTab";
+            this.planeTab.Size = new System.Drawing.Size(768, 400);
+            this.planeTab.TabIndex = 6;
+            this.planeTab.Text = "Planes";
+            this.planeTab.UseVisualStyleBackColor = true;
+            // 
+            // checkedPlanes
+            // 
+            this.checkedPlanes.FormattingEnabled = true;
+            this.checkedPlanes.Location = new System.Drawing.Point(3, 3);
+            this.checkedPlanes.Name = "checkedPlanes";
+            this.checkedPlanes.Size = new System.Drawing.Size(392, 394);
+            this.checkedPlanes.TabIndex = 4;
+            // 
             // scheduleTab
             // 
+            this.scheduleTab.Controls.Add(this.scheduleListBox);
             this.scheduleTab.Controls.Add(this.label10);
             this.scheduleTab.Controls.Add(this.label9);
             this.scheduleTab.Controls.Add(this.label8);
             this.scheduleTab.Controls.Add(this.label7);
-            this.scheduleTab.Controls.Add(this.checkedSchedule);
             this.scheduleTab.Controls.Add(this.confirmButton);
             this.scheduleTab.Controls.Add(this.dateTimePicker1);
             this.scheduleTab.Controls.Add(this.comboInstructor);
@@ -292,77 +314,14 @@
             this.scheduleTab.Text = "Schedule";
             this.scheduleTab.UseVisualStyleBackColor = true;
             // 
-            // checkedSchedule
+            // scheduleListBox
             // 
-            this.checkedSchedule.FormattingEnabled = true;
-            this.checkedSchedule.Location = new System.Drawing.Point(3, 3);
-            this.checkedSchedule.Name = "checkedSchedule";
-            this.checkedSchedule.Size = new System.Drawing.Size(420, 199);
-            this.checkedSchedule.TabIndex = 10;
-            this.checkedSchedule.SelectedIndexChanged += new System.EventHandler(this.checkedSchedule_SelectedIndexChanged_1);
-            // 
-            // confirmButton
-            // 
-            this.confirmButton.Location = new System.Drawing.Point(602, 222);
-            this.confirmButton.Name = "confirmButton";
-            this.confirmButton.Size = new System.Drawing.Size(121, 20);
-            this.confirmButton.TabIndex = 8;
-            this.confirmButton.Text = "Confirm";
-            this.confirmButton.UseVisualStyleBackColor = true;
-            this.confirmButton.Click += new System.EventHandler(this.confirmButton_Click);
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(396, 222);
-            this.dateTimePicker1.MinDate = new System.DateTime(2020, 5, 4, 0, 0, 0, 0);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 7;
-            this.dateTimePicker1.Value = new System.DateTime(2020, 5, 5, 15, 12, 36, 0);
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-            // 
-            // comboInstructor
-            // 
-            this.comboInstructor.FormattingEnabled = true;
-            this.comboInstructor.Location = new System.Drawing.Point(269, 221);
-            this.comboInstructor.Name = "comboInstructor";
-            this.comboInstructor.Size = new System.Drawing.Size(121, 21);
-            this.comboInstructor.TabIndex = 3;
-            // 
-            // comboPlane
-            // 
-            this.comboPlane.FormattingEnabled = true;
-            this.comboPlane.Location = new System.Drawing.Point(142, 221);
-            this.comboPlane.Name = "comboPlane";
-            this.comboPlane.Size = new System.Drawing.Size(121, 21);
-            this.comboPlane.TabIndex = 2;
-            // 
-            // comboPilot
-            // 
-            this.comboPilot.FormattingEnabled = true;
-            this.comboPilot.Location = new System.Drawing.Point(15, 221);
-            this.comboPilot.Name = "comboPilot";
-            this.comboPilot.Size = new System.Drawing.Size(121, 21);
-            this.comboPilot.TabIndex = 1;
-            // 
-            // equipment
-            // 
-            this.equipment.Controls.Add(this.checkedEquipment);
-            this.equipment.Location = new System.Drawing.Point(4, 22);
-            this.equipment.Name = "equipment";
-            this.equipment.Size = new System.Drawing.Size(768, 400);
-            this.equipment.TabIndex = 5;
-            this.equipment.Text = "Equipment";
-            this.equipment.UseVisualStyleBackColor = true;
-            // 
-            // checkedEquipment
-            // 
-            this.checkedEquipment.FormattingEnabled = true;
-            this.checkedEquipment.Location = new System.Drawing.Point(3, 3);
-            this.checkedEquipment.Name = "checkedEquipment";
-            this.checkedEquipment.Size = new System.Drawing.Size(420, 199);
-            this.checkedEquipment.TabIndex = 13;
-            this.checkedEquipment.SelectedIndexChanged += new System.EventHandler(this.checkedEquipment_SelectedIndexChanged_1);
+            this.scheduleListBox.FormattingEnabled = true;
+            this.scheduleListBox.Location = new System.Drawing.Point(3, 3);
+            this.scheduleListBox.Name = "scheduleListBox";
+            this.scheduleListBox.Size = new System.Drawing.Size(420, 199);
+            this.scheduleListBox.TabIndex = 15;
+            this.scheduleListBox.SelectedIndexChanged += new System.EventHandler(this.scheduleListBox_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -400,23 +359,88 @@
             this.label7.TabIndex = 11;
             this.label7.Text = "Pilot";
             // 
-            // planeTab
+            // confirmButton
             // 
-            this.planeTab.Controls.Add(this.checkedPlanes);
-            this.planeTab.Location = new System.Drawing.Point(4, 22);
-            this.planeTab.Name = "planeTab";
-            this.planeTab.Size = new System.Drawing.Size(768, 400);
-            this.planeTab.TabIndex = 6;
-            this.planeTab.Text = "Planes";
-            this.planeTab.UseVisualStyleBackColor = true;
+            this.confirmButton.Location = new System.Drawing.Point(602, 222);
+            this.confirmButton.Name = "confirmButton";
+            this.confirmButton.Size = new System.Drawing.Size(121, 20);
+            this.confirmButton.TabIndex = 8;
+            this.confirmButton.Text = "Confirm";
+            this.confirmButton.UseVisualStyleBackColor = true;
+            this.confirmButton.Click += new System.EventHandler(this.confirmButton_Click);
             // 
-            // checkedPlanes
+            // dateTimePicker1
             // 
-            this.checkedPlanes.FormattingEnabled = true;
-            this.checkedPlanes.Location = new System.Drawing.Point(3, 3);
-            this.checkedPlanes.Name = "checkedPlanes";
-            this.checkedPlanes.Size = new System.Drawing.Size(392, 394);
-            this.checkedPlanes.TabIndex = 4;
+            this.dateTimePicker1.Location = new System.Drawing.Point(396, 222);
+            this.dateTimePicker1.MinDate = new System.DateTime(2020, 5, 4, 0, 0, 0, 0);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 7;
+            this.dateTimePicker1.Value = new System.DateTime(2020, 5, 5, 15, 12, 36, 0);
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // comboInstructor
+            // 
+            this.comboInstructor.FormattingEnabled = true;
+            this.comboInstructor.Location = new System.Drawing.Point(269, 221);
+            this.comboInstructor.Name = "comboInstructor";
+            this.comboInstructor.Size = new System.Drawing.Size(121, 21);
+            this.comboInstructor.TabIndex = 3;
+            // 
+            // comboPlane
+            // 
+            this.comboPlane.FormattingEnabled = true;
+            this.comboPlane.Location = new System.Drawing.Point(142, 221);
+            this.comboPlane.Name = "comboPlane";
+            this.comboPlane.Size = new System.Drawing.Size(121, 21);
+            this.comboPlane.TabIndex = 2;
+            this.comboPlane.SelectedIndexChanged += new System.EventHandler(this.comboPlane_SelectedIndexChanged);
+            // 
+            // comboPilot
+            // 
+            this.comboPilot.FormattingEnabled = true;
+            this.comboPilot.Location = new System.Drawing.Point(15, 221);
+            this.comboPilot.Name = "comboPilot";
+            this.comboPilot.Size = new System.Drawing.Size(121, 21);
+            this.comboPilot.TabIndex = 1;
+            // 
+            // equipment
+            // 
+            this.equipment.Controls.Add(this.equipmentListBox);
+            this.equipment.Location = new System.Drawing.Point(4, 22);
+            this.equipment.Name = "equipment";
+            this.equipment.Size = new System.Drawing.Size(768, 400);
+            this.equipment.TabIndex = 5;
+            this.equipment.Text = "Equipment";
+            this.equipment.UseVisualStyleBackColor = true;
+            // 
+            // equipmentListBox
+            // 
+            this.equipmentListBox.FormattingEnabled = true;
+            this.equipmentListBox.Location = new System.Drawing.Point(3, 3);
+            this.equipmentListBox.Name = "equipmentListBox";
+            this.equipmentListBox.Size = new System.Drawing.Size(420, 199);
+            this.equipmentListBox.TabIndex = 14;
+            this.equipmentListBox.SelectedIndexChanged += new System.EventHandler(this.equipmentListBox_SelectedIndexChanged);
+            // 
+            // orderTab
+            // 
+            this.orderTab.Controls.Add(this.orderListBox);
+            this.orderTab.Location = new System.Drawing.Point(4, 22);
+            this.orderTab.Name = "orderTab";
+            this.orderTab.Size = new System.Drawing.Size(768, 400);
+            this.orderTab.TabIndex = 7;
+            this.orderTab.Text = "Orders";
+            this.orderTab.UseVisualStyleBackColor = true;
+            // 
+            // orderListBox
+            // 
+            this.orderListBox.FormattingEnabled = true;
+            this.orderListBox.Location = new System.Drawing.Point(3, 3);
+            this.orderListBox.Name = "orderListBox";
+            this.orderListBox.Size = new System.Drawing.Size(420, 199);
+            this.orderListBox.TabIndex = 14;
+            this.orderListBox.SelectedIndexChanged += new System.EventHandler(this.orderListBox_SelectedIndexChanged);
             // 
             // MainAdmin
             // 
@@ -432,10 +456,11 @@
             this.clientsTab.ResumeLayout(false);
             this.instructorsTab.ResumeLayout(false);
             this.pilotsTab.ResumeLayout(false);
+            this.planeTab.ResumeLayout(false);
             this.scheduleTab.ResumeLayout(false);
             this.scheduleTab.PerformLayout();
             this.equipment.ResumeLayout(false);
-            this.planeTab.ResumeLayout(false);
+            this.orderTab.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -469,13 +494,15 @@
         private System.Windows.Forms.ComboBox comboPilot;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button confirmButton;
-        private System.Windows.Forms.ListBox checkedSchedule;
-        private System.Windows.Forms.ListBox checkedEquipment;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TabPage planeTab;
         private System.Windows.Forms.CheckedListBox checkedPlanes;
+        private System.Windows.Forms.TabPage orderTab;
+        private System.Windows.Forms.ListBox orderListBox;
+        private System.Windows.Forms.ListBox equipmentListBox;
+        private System.Windows.Forms.ListBox scheduleListBox;
     }
 }
