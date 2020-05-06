@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace DataBasePracticalJob
 {
-    class Coupon
+    class UpdateOrder
     {
+        public string status { get; set; }
         public int ID { get; set; }
-        public int admin { get; set; }
-        public string code { get; set; }
     }
 }

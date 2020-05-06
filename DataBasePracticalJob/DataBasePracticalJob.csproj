@@ -110,6 +110,8 @@
     <Compile Include="Review.cs" />
     <Compile Include="Schedule.cs" />
     <Compile Include="State.cs" />
+    <Compile Include="UpdateOrder.cs" />
+    <Compile Include="UpdateSchedule.cs" />
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>

@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.profileTab = new System.Windows.Forms.TabPage();
+            this.logoutButton = new System.Windows.Forms.Button();
             this.idLabel = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.numberLabel = new System.Windows.Forms.Label();
@@ -65,7 +66,13 @@
             this.equipmentListBox = new System.Windows.Forms.ListBox();
             this.orderTab = new System.Windows.Forms.TabPage();
             this.orderListBox = new System.Windows.Forms.ListBox();
-            this.logoutButton = new System.Windows.Forms.Button();
+            this.couponTab = new System.Windows.Forms.TabPage();
+            this.couponList = new System.Windows.Forms.ListBox();
+            this.codeTextBox = new System.Windows.Forms.TextBox();
+            this.enterButton = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.CompleteButton = new System.Windows.Forms.Button();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.tabControl1.SuspendLayout();
             this.profileTab.SuspendLayout();
             this.clientsTab.SuspendLayout();
@@ -75,6 +82,7 @@
             this.scheduleTab.SuspendLayout();
             this.equipment.SuspendLayout();
             this.orderTab.SuspendLayout();
+            this.couponTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -87,6 +95,7 @@
             this.tabControl1.Controls.Add(this.scheduleTab);
             this.tabControl1.Controls.Add(this.equipment);
             this.tabControl1.Controls.Add(this.orderTab);
+            this.tabControl1.Controls.Add(this.couponTab);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -116,6 +125,16 @@
             this.profileTab.Text = "Profile";
             this.profileTab.UseVisualStyleBackColor = true;
             this.profileTab.Click += new System.EventHandler(this.profileTab_Click);
+            // 
+            // logoutButton
+            // 
+            this.logoutButton.Location = new System.Drawing.Point(687, 6);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(75, 23);
+            this.logoutButton.TabIndex = 13;
+            this.logoutButton.Text = "Logout";
+            this.logoutButton.UseVisualStyleBackColor = true;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
             // idLabel
             // 
@@ -299,6 +318,7 @@
             // 
             // scheduleTab
             // 
+            this.scheduleTab.Controls.Add(this.dateTimePicker2);
             this.scheduleTab.Controls.Add(this.scheduleListBox);
             this.scheduleTab.Controls.Add(this.label10);
             this.scheduleTab.Controls.Add(this.label9);
@@ -363,7 +383,7 @@
             // 
             // confirmButton
             // 
-            this.confirmButton.Location = new System.Drawing.Point(602, 222);
+            this.confirmButton.Location = new System.Drawing.Point(644, 248);
             this.confirmButton.Name = "confirmButton";
             this.confirmButton.Size = new System.Drawing.Size(121, 20);
             this.confirmButton.TabIndex = 8;
@@ -427,6 +447,7 @@
             // 
             // orderTab
             // 
+            this.orderTab.Controls.Add(this.CompleteButton);
             this.orderTab.Controls.Add(this.orderListBox);
             this.orderTab.Location = new System.Drawing.Point(4, 22);
             this.orderTab.Name = "orderTab";
@@ -440,19 +461,76 @@
             this.orderListBox.FormattingEnabled = true;
             this.orderListBox.Location = new System.Drawing.Point(3, 3);
             this.orderListBox.Name = "orderListBox";
-            this.orderListBox.Size = new System.Drawing.Size(420, 199);
+            this.orderListBox.Size = new System.Drawing.Size(762, 277);
             this.orderListBox.TabIndex = 14;
             this.orderListBox.SelectedIndexChanged += new System.EventHandler(this.orderListBox_SelectedIndexChanged);
             // 
-            // logoutButton
+            // couponTab
             // 
-            this.logoutButton.Location = new System.Drawing.Point(687, 6);
-            this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Size = new System.Drawing.Size(75, 23);
-            this.logoutButton.TabIndex = 13;
-            this.logoutButton.Text = "Logout";
-            this.logoutButton.UseVisualStyleBackColor = true;
-            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
+            this.couponTab.Controls.Add(this.label11);
+            this.couponTab.Controls.Add(this.enterButton);
+            this.couponTab.Controls.Add(this.codeTextBox);
+            this.couponTab.Controls.Add(this.couponList);
+            this.couponTab.Location = new System.Drawing.Point(4, 22);
+            this.couponTab.Name = "couponTab";
+            this.couponTab.Size = new System.Drawing.Size(768, 400);
+            this.couponTab.TabIndex = 8;
+            this.couponTab.Text = "Coupones";
+            this.couponTab.UseVisualStyleBackColor = true;
+            // 
+            // couponList
+            // 
+            this.couponList.FormattingEnabled = true;
+            this.couponList.Location = new System.Drawing.Point(3, 3);
+            this.couponList.Name = "couponList";
+            this.couponList.Size = new System.Drawing.Size(544, 199);
+            this.couponList.TabIndex = 15;
+            // 
+            // codeTextBox
+            // 
+            this.codeTextBox.Location = new System.Drawing.Point(3, 237);
+            this.codeTextBox.Name = "codeTextBox";
+            this.codeTextBox.Size = new System.Drawing.Size(196, 20);
+            this.codeTextBox.TabIndex = 16;
+            // 
+            // enterButton
+            // 
+            this.enterButton.Location = new System.Drawing.Point(205, 235);
+            this.enterButton.Name = "enterButton";
+            this.enterButton.Size = new System.Drawing.Size(75, 23);
+            this.enterButton.TabIndex = 17;
+            this.enterButton.Text = "Enter";
+            this.enterButton.UseVisualStyleBackColor = true;
+            this.enterButton.Click += new System.EventHandler(this.enterButton_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(3, 221);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(80, 13);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "Enter the code:";
+            // 
+            // CompleteButton
+            // 
+            this.CompleteButton.Location = new System.Drawing.Point(645, 286);
+            this.CompleteButton.Name = "CompleteButton";
+            this.CompleteButton.Size = new System.Drawing.Size(120, 23);
+            this.CompleteButton.TabIndex = 15;
+            this.CompleteButton.Text = "Complete this order";
+            this.CompleteButton.UseVisualStyleBackColor = true;
+            this.CompleteButton.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePicker2.Location = new System.Drawing.Point(602, 222);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(82, 20);
+            this.dateTimePicker2.TabIndex = 16;
+            this.dateTimePicker2.TabStop = false;
+            this.dateTimePicker2.Value = new System.DateTime(2020, 5, 6, 16, 57, 0, 0);
             // 
             // MainAdmin
             // 
@@ -462,6 +540,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "MainAdmin";
             this.Text = "MainAdmin";
+            this.Load += new System.EventHandler(this.MainAdmin_Load);
             this.tabControl1.ResumeLayout(false);
             this.profileTab.ResumeLayout(false);
             this.profileTab.PerformLayout();
@@ -473,6 +552,8 @@
             this.scheduleTab.PerformLayout();
             this.equipment.ResumeLayout(false);
             this.orderTab.ResumeLayout(false);
+            this.couponTab.ResumeLayout(false);
+            this.couponTab.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -517,5 +598,12 @@
         private System.Windows.Forms.ListBox equipmentListBox;
         private System.Windows.Forms.ListBox scheduleListBox;
         private System.Windows.Forms.Button logoutButton;
+        private System.Windows.Forms.TabPage couponTab;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button enterButton;
+        private System.Windows.Forms.TextBox codeTextBox;
+        private System.Windows.Forms.ListBox couponList;
+        private System.Windows.Forms.Button CompleteButton;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
     }
 }

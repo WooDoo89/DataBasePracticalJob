@@ -20,14 +20,47 @@ namespace DataBasePracticalJob
         List<Schedule> schedules = new List<Schedule>();
         List<Equipment> equipments = new List<Equipment>();
         List<Order> orders = new List<Order>();
-
+        List<Coupon> coupones = new List<Coupon>();
+        List<Review> reviews = new List<Review>();
+        List<string> ordertList = new List<string>();
+        List<int> ids = new List<int>();
         public MainClient()
         {
             InitializeComponent();
             UpdateData();
             ShowData();
+            UpdateOrderData();
         }
-
+        private void RefreshOrderList()
+        {
+            orderListBox.Items.Clear();
+            orderListBox.Items.AddRange(ordertList.ToArray());
+        }
+        private void UpdateOrderData()
+        {
+            for (int i = 0; i < orders.Count; i++)
+            {
+                if (schedules[orders[i].schedule].client == State.ActiveClient.ID && orders[i].status == "Completed")
+                {
+                    if (orders[i].coupon == 0)
+                    {
+                        ordertList.Add("Orders ID: " + orders[i].ID + ", Coupon: No coupon, Selected date: " + schedules[orders[i].schedule].ID + " " + schedules[orders[i].schedule].date
+                            + ", Status: " + orders[i].status + ", People number: " + orders[i].peopleNumber + ", Jump type: " + jumpTypes[orders[i].jumpType].type
+                            + ", Equipment: " + equipments[orders[i].equipment].ID + " " + equipments[orders[i].equipment].filming + " " + equipments[orders[i].equipment].photographing
+                            + " " + equipments[orders[i].equipment].price);
+                    }
+                    else
+                    {
+                        ordertList.Add("Orders ID: " + orders[i].ID + ", Coupon: " + coupones[orders[i].coupon].code + ", Selected date: " + schedules[orders[i].schedule].ID + " " + schedules[orders[i].schedule].date
+                            + ", Status: " + orders[i].status + ", People number: " + orders[i].peopleNumber + ", Jump type: " + jumpTypes[orders[i].jumpType].type
+                            + ", Equipment: " + equipments[orders[i].equipment].ID + " " + equipments[orders[i].equipment].filming + " " + equipments[orders[i].equipment].photographing
+                            + " " + equipments[orders[i].equipment].price);
+                    }
+                    ids.Add(orders[i].ID);
+                }
+            }
+            RefreshOrderList();
+        }
         private void UpdateData()
         {
             admins = DataBase.GetAdmin();
@@ -36,7 +69,10 @@ namespace DataBasePracticalJob
             planes = DataBase.GetPlane();
             schedules = DataBase.GetSchedule();
             equipments = DataBase.GetEquipment();
-            //orders = DataBase.GetOrder();
+            orders = DataBase.GetOrder();
+            jumpTypes = DataBase.GetJumpType();
+            coupones = DataBase.GetCoupon();
+            reviews = DataBase.GetReview();
         }
 
         private void ShowData()
@@ -56,7 +92,10 @@ namespace DataBasePracticalJob
             }
             for (int i = 0; i < schedules.Count; i++)
             {
-                comboDate.Items.Add(schedules[i].date);
+                if (schedules[i].client == 0)
+                {
+                    comboDate.Items.Add(schedules[i].date);
+                }
             }
             for (int i = 0; i < equipments.Count; i++)
             {
@@ -102,31 +141,96 @@ namespace DataBasePracticalJob
 
         private void makeOrderButton_Click(object sender, EventArgs e)
         {
-            //if (Convert.ToString(comboDate.SelectedItem) == "" || Convert.ToString(comboJumpType.SelectedItem) == "")
-            //{
-            //    MessageBox.Show("Please check if all data is correct");
-            //}
-            //else
-            //{
+            int help = 0;
+            Order newOrder = new Order();
+            UpdateSchedule us = new UpdateSchedule();
+            if (Convert.ToString(comboDate.SelectedItem) == "" || Convert.ToString(comboJumpType.SelectedItem) == "")
+            {
+                MessageBox.Show("Please check if all data is correct");
+            }
+            else if (couponNumber.Text != "")
+            {
+                for (int i = 0; i < coupones.Count; i++)
+                {
+                    if (coupones[i].code == couponNumber.Text)
+                    {
+                        newOrder.coupon = coupones[i].ID;
+                        i = coupones.Count + 1;
+                        help = 1;
+                    }
+                }
+                if (help == 0)
+                {
+                    MessageBox.Show("You entered wrong code. Please try again!");
+                    couponNumber.Text = "";
+                }
+                else
+                {
+                    if ((string)comboEquipment.SelectedItem != "")
+                        newOrder.equipment = comboEquipment.SelectedIndex - 1;
+                    if (peopleNTextBox.Text != "")
+                        newOrder.peopleNumber = Convert.ToInt32(peopleNTextBox.Text);
+                    newOrder.ID = orders.Count;
+                    newOrder.admin = 0;
+                    newOrder.schedule = comboDate.SelectedIndex;
+                    newOrder.jumpType = comboJumpType.SelectedIndex;
+                    newOrder.status = "Confirming";
+                    us.client = State.ActiveClient.ID;
+                    us.date = (string)comboDate.SelectedItem;
+                    DataBase.UpdateSchedule(us);
+                    DataBase.SaveOrder(newOrder);
+                    UpdateData();
+                    MessageBox.Show("Your order has been saved");
+                }
+            }
+            else
+            {
+                if ((string)comboEquipment.SelectedItem != "")
+                    newOrder.equipment = comboEquipment.SelectedIndex - 1;
+                if (peopleNTextBox.Text != "")
+                    newOrder.peopleNumber = Convert.ToInt32(peopleNTextBox.Text);
+                newOrder.ID = orders.Count;
+                newOrder.admin = 0;
+                newOrder.schedule = comboDate.SelectedIndex;
+                newOrder.jumpType = comboJumpType.SelectedIndex;
+                newOrder.status = "Confirming";
+                us.client = State.ActiveClient.ID;
+                us.date = (string)comboDate.SelectedItem;
+                DataBase.UpdateSchedule(us);
+                DataBase.SaveOrder(newOrder);
+                UpdateData();
+                MessageBox.Show("Your order has been saved");
+            }
+        }
 
-            //    Order newOrder = new Order();
-            //    if(comboEquipment.SelectedItem != null)
-            //        newOrder.equipment = comboEquipment.SelectedIndex;
-            //    if(couponNumber.Text != null)
-            //        newOrder.coupon = Convert.ToInt32(couponNumber.Text);
-            //    newOrder.ID = orders.Count;
-            //    newOrder.admin = 0;
-            //    newOrder.plane = planes[State.ActiveSchedule.plane].ID;
-            //    newOrder.pilot = pilots[State.ActiveSchedule.pilot].ID;
-            //    newOrder.client = State.ActiveClient.ID;
-            //    newOrder.instructor = instructors[State.ActiveSchedule.instructor].ID;
-            //    newOrder.schedule = comboDate.SelectedIndex;
-            //    newOrder.jumpType = comboJumpType.SelectedIndex;
-            //    newOrder.status = "Confirming";
-            //    newOrder.peopleNumber = 0;
-            //    DataBase.SaveOrder(newOrder);
-            //    UpdateData();
-            //}
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if ((string)orderListBox.SelectedItem != "" && richTextBox1.Text != "" && richTextBox2.Text != "")
+            {
+                Review newReview = new Review();
+                newReview.ID = reviews.Count;
+                newReview.order = ids[orderListBox.SelectedIndex];
+                newReview.instructor = richTextBox1.Text;
+                newReview.jump = richTextBox2.Text;
+                try
+                {
+                    DataBase.SaveReview(newReview);
+                    MessageBox.Show("Review has been saved!");
+                }
+                catch
+                {
+                    MessageBox.Show("Review on this order already exists");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please fill in all data");
+            }
         }
     }
 }

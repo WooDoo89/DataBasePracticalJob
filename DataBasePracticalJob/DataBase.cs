@@ -75,7 +75,7 @@ namespace DataBasePracticalJob
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                cnn.Execute("insert into Schedule values (@ID, @admin, @client,  @instructor, @pilot, @plane, @date)", cl);
+                cnn.Execute("insert into Schedule values (@ID, @client, @instructor ,@admin, @plane, @pilot, @date)", cl);
             }
         }
         public static List<Equipment> GetEquipment()
@@ -90,7 +90,7 @@ namespace DataBasePracticalJob
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                cnn.Execute("insert into Schedule values (@ID, @admin, @filming, @photographing, @price)", cl);
+                cnn.Execute("insert into Equipment values (@ID, @admin, @filming, @photographing, @price)", cl);
             }
         }
         public static List<JumpType> GetJumpType()
@@ -113,7 +113,51 @@ namespace DataBasePracticalJob
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                cnn.Execute("insert into Schedule values (@ID, @admin, @pilot, @instructor, @coupon, @schedule, @plane, @client, @jumpType, @peopleNubmer, @status, @equipment)", cl);
+                cnn.Execute("insert into Orders values (@ID, @admin, @coupon, @schedule, @jumpType, @equipment, @peopleNumber, @status)", cl);
+            }
+        }
+        public static List<Coupon> GetCoupon()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<Coupon>("select * from Coupon", new DynamicParameters());
+                return output.ToList();
+            }
+        }
+        public static void SaveCoupon(Coupon cl)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                cnn.Execute("insert into Coupon values (@ID, @admin, @code)", cl);
+            }
+        }
+        public static void UpdateOrder(UpdateOrder u)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                cnn.Execute("update Orders set status = @status where ID = @ID", u);
+            }
+        }
+        public static List<Review> GetReview()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<Review>("select * from Review", new DynamicParameters());
+                return output.ToList();
+            }
+        }
+        public static void SaveReview(Review cl)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                cnn.Execute("insert into Review values (@ID, @order, @instructor, @jump)", cl);
+            }
+        }
+        public static void UpdateSchedule(UpdateSchedule u)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                cnn.Execute("update Schedule set client = @client where date = @date", u);
             }
         }
     }

@@ -47,6 +47,7 @@
             this.usernameLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
             this.scheduleTab = new System.Windows.Forms.TabPage();
+            this.makeOrderButton = new System.Windows.Forms.Button();
             this.pilotSurnameLabel = new System.Windows.Forms.Label();
             this.instructorSurnameLabel = new System.Windows.Forms.Label();
             this.planeTypeLabel = new System.Windows.Forms.Label();
@@ -63,24 +64,36 @@
             this.comboEquipment = new System.Windows.Forms.ComboBox();
             this.couponNumber = new System.Windows.Forms.TextBox();
             this.comboJumpType = new System.Windows.Forms.ComboBox();
-            this.makeOrderButton = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.peopleNTextBox = new System.Windows.Forms.TextBox();
+            this.logoutButton = new System.Windows.Forms.Button();
+            this.reviewTab = new System.Windows.Forms.TabPage();
+            this.orderListBox = new System.Windows.Forms.ListBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.profileTab.SuspendLayout();
             this.scheduleTab.SuspendLayout();
+            this.reviewTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.profileTab);
             this.tabControl1.Controls.Add(this.scheduleTab);
+            this.tabControl1.Controls.Add(this.reviewTab);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(776, 426);
+            this.tabControl1.Size = new System.Drawing.Size(889, 426);
             this.tabControl1.TabIndex = 1;
             // 
             // profileTab
             // 
+            this.profileTab.Controls.Add(this.logoutButton);
             this.profileTab.Controls.Add(this.heightLabel);
             this.profileTab.Controls.Add(this.weightLabel);
             this.profileTab.Controls.Add(this.label8);
@@ -244,6 +257,8 @@
             // 
             // scheduleTab
             // 
+            this.scheduleTab.Controls.Add(this.label13);
+            this.scheduleTab.Controls.Add(this.peopleNTextBox);
             this.scheduleTab.Controls.Add(this.makeOrderButton);
             this.scheduleTab.Controls.Add(this.pilotSurnameLabel);
             this.scheduleTab.Controls.Add(this.instructorSurnameLabel);
@@ -263,15 +278,25 @@
             this.scheduleTab.Controls.Add(this.comboJumpType);
             this.scheduleTab.Location = new System.Drawing.Point(4, 22);
             this.scheduleTab.Name = "scheduleTab";
-            this.scheduleTab.Size = new System.Drawing.Size(768, 400);
+            this.scheduleTab.Size = new System.Drawing.Size(881, 400);
             this.scheduleTab.TabIndex = 4;
             this.scheduleTab.Text = "Schedule";
             this.scheduleTab.UseVisualStyleBackColor = true;
             // 
+            // makeOrderButton
+            // 
+            this.makeOrderButton.Location = new System.Drawing.Point(803, 161);
+            this.makeOrderButton.Name = "makeOrderButton";
+            this.makeOrderButton.Size = new System.Drawing.Size(75, 23);
+            this.makeOrderButton.TabIndex = 22;
+            this.makeOrderButton.Text = "Make Order";
+            this.makeOrderButton.UseVisualStyleBackColor = true;
+            this.makeOrderButton.Click += new System.EventHandler(this.makeOrderButton_Click);
+            // 
             // pilotSurnameLabel
             // 
             this.pilotSurnameLabel.AutoSize = true;
-            this.pilotSurnameLabel.Location = new System.Drawing.Point(653, 68);
+            this.pilotSurnameLabel.Location = new System.Drawing.Point(777, 62);
             this.pilotSurnameLabel.Name = "pilotSurnameLabel";
             this.pilotSurnameLabel.Size = new System.Drawing.Size(0, 13);
             this.pilotSurnameLabel.TabIndex = 21;
@@ -279,7 +304,7 @@
             // instructorSurnameLabel
             // 
             this.instructorSurnameLabel.AutoSize = true;
-            this.instructorSurnameLabel.Location = new System.Drawing.Point(653, 37);
+            this.instructorSurnameLabel.Location = new System.Drawing.Point(777, 31);
             this.instructorSurnameLabel.Name = "instructorSurnameLabel";
             this.instructorSurnameLabel.Size = new System.Drawing.Size(0, 13);
             this.instructorSurnameLabel.TabIndex = 20;
@@ -287,7 +312,7 @@
             // planeTypeLabel
             // 
             this.planeTypeLabel.AutoSize = true;
-            this.planeTypeLabel.Location = new System.Drawing.Point(653, 89);
+            this.planeTypeLabel.Location = new System.Drawing.Point(777, 83);
             this.planeTypeLabel.Name = "planeTypeLabel";
             this.planeTypeLabel.Size = new System.Drawing.Size(0, 13);
             this.planeTypeLabel.TabIndex = 19;
@@ -295,7 +320,7 @@
             // pilotNameLabel
             // 
             this.pilotNameLabel.AutoSize = true;
-            this.pilotNameLabel.Location = new System.Drawing.Point(653, 55);
+            this.pilotNameLabel.Location = new System.Drawing.Point(777, 49);
             this.pilotNameLabel.Name = "pilotNameLabel";
             this.pilotNameLabel.Size = new System.Drawing.Size(0, 13);
             this.pilotNameLabel.TabIndex = 18;
@@ -303,7 +328,7 @@
             // instructorNameLabel
             // 
             this.instructorNameLabel.AutoSize = true;
-            this.instructorNameLabel.Location = new System.Drawing.Point(653, 24);
+            this.instructorNameLabel.Location = new System.Drawing.Point(777, 18);
             this.instructorNameLabel.Name = "instructorNameLabel";
             this.instructorNameLabel.Size = new System.Drawing.Size(0, 13);
             this.instructorNameLabel.TabIndex = 17;
@@ -311,7 +336,7 @@
             // planeLabel
             // 
             this.planeLabel.AutoSize = true;
-            this.planeLabel.Location = new System.Drawing.Point(593, 89);
+            this.planeLabel.Location = new System.Drawing.Point(717, 83);
             this.planeLabel.Name = "planeLabel";
             this.planeLabel.Size = new System.Drawing.Size(37, 13);
             this.planeLabel.TabIndex = 16;
@@ -321,7 +346,7 @@
             // pilotLabel
             // 
             this.pilotLabel.AutoSize = true;
-            this.pilotLabel.Location = new System.Drawing.Point(593, 55);
+            this.pilotLabel.Location = new System.Drawing.Point(717, 49);
             this.pilotLabel.Name = "pilotLabel";
             this.pilotLabel.Size = new System.Drawing.Size(30, 13);
             this.pilotLabel.TabIndex = 15;
@@ -331,7 +356,7 @@
             // instructorLabel
             // 
             this.instructorLabel.AutoSize = true;
-            this.instructorLabel.Location = new System.Drawing.Point(593, 24);
+            this.instructorLabel.Location = new System.Drawing.Point(717, 18);
             this.instructorLabel.Name = "instructorLabel";
             this.instructorLabel.Size = new System.Drawing.Size(54, 13);
             this.instructorLabel.TabIndex = 14;
@@ -361,9 +386,9 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(254, 5);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(58, 13);
+            this.label10.Size = new System.Drawing.Size(74, 13);
             this.label10.TabIndex = 11;
-            this.label10.Text = "Coupon ID";
+            this.label10.Text = "Coupon code:";
             // 
             // label9
             // 
@@ -407,21 +432,104 @@
             this.comboJumpType.Size = new System.Drawing.Size(121, 21);
             this.comboJumpType.TabIndex = 1;
             // 
-            // makeOrderButton
+            // label13
             // 
-            this.makeOrderButton.Location = new System.Drawing.Point(690, 157);
-            this.makeOrderButton.Name = "makeOrderButton";
-            this.makeOrderButton.Size = new System.Drawing.Size(75, 23);
-            this.makeOrderButton.TabIndex = 22;
-            this.makeOrderButton.Text = "Make Order";
-            this.makeOrderButton.UseVisualStyleBackColor = true;
-            this.makeOrderButton.Click += new System.EventHandler(this.makeOrderButton_Click);
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(562, 5);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(81, 13);
+            this.label13.TabIndex = 24;
+            this.label13.Text = "People number:";
+            // 
+            // peopleNTextBox
+            // 
+            this.peopleNTextBox.Location = new System.Drawing.Point(565, 21);
+            this.peopleNTextBox.Name = "peopleNTextBox";
+            this.peopleNTextBox.Size = new System.Drawing.Size(100, 20);
+            this.peopleNTextBox.TabIndex = 23;
+            // 
+            // logoutButton
+            // 
+            this.logoutButton.Location = new System.Drawing.Point(687, 6);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(75, 23);
+            this.logoutButton.TabIndex = 17;
+            this.logoutButton.Text = "Logout";
+            this.logoutButton.UseVisualStyleBackColor = true;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
+            // 
+            // reviewTab
+            // 
+            this.reviewTab.Controls.Add(this.button1);
+            this.reviewTab.Controls.Add(this.richTextBox2);
+            this.reviewTab.Controls.Add(this.label15);
+            this.reviewTab.Controls.Add(this.richTextBox1);
+            this.reviewTab.Controls.Add(this.label14);
+            this.reviewTab.Controls.Add(this.orderListBox);
+            this.reviewTab.Location = new System.Drawing.Point(4, 22);
+            this.reviewTab.Name = "reviewTab";
+            this.reviewTab.Size = new System.Drawing.Size(881, 400);
+            this.reviewTab.TabIndex = 5;
+            this.reviewTab.Text = "Review";
+            this.reviewTab.UseVisualStyleBackColor = true;
+            // 
+            // orderListBox
+            // 
+            this.orderListBox.FormattingEnabled = true;
+            this.orderListBox.Location = new System.Drawing.Point(4, 4);
+            this.orderListBox.Name = "orderListBox";
+            this.orderListBox.Size = new System.Drawing.Size(874, 108);
+            this.orderListBox.TabIndex = 0;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(4, 152);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(122, 13);
+            this.label14.TabIndex = 1;
+            this.label14.Text = "Review about instructor:";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(7, 169);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(189, 158);
+            this.richTextBox1.TabIndex = 2;
+            this.richTextBox1.Text = "";
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.Location = new System.Drawing.Point(202, 169);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(189, 158);
+            this.richTextBox2.TabIndex = 4;
+            this.richTextBox2.Text = "";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(199, 152);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(101, 13);
+            this.label15.TabIndex = 3;
+            this.label15.Text = "Review about jump:";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(398, 303);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Save";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MainClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(913, 450);
             this.Controls.Add(this.tabControl1);
             this.Name = "MainClient";
             this.Text = "MainClient";
@@ -430,6 +538,8 @@
             this.profileTab.PerformLayout();
             this.scheduleTab.ResumeLayout(false);
             this.scheduleTab.PerformLayout();
+            this.reviewTab.ResumeLayout(false);
+            this.reviewTab.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -472,5 +582,15 @@
         private System.Windows.Forms.Label pilotSurnameLabel;
         private System.Windows.Forms.Label instructorSurnameLabel;
         private System.Windows.Forms.Button makeOrderButton;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox peopleNTextBox;
+        private System.Windows.Forms.Button logoutButton;
+        private System.Windows.Forms.TabPage reviewTab;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ListBox orderListBox;
     }
 }

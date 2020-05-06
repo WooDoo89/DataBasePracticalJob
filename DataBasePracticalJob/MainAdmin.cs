@@ -21,9 +21,11 @@ namespace DataBasePracticalJob
         List<Schedule> schedules = new List<Schedule>();
         List<Equipment> equipments = new List<Equipment>();
         List<JumpType> jumpType = new List<JumpType>();
+        List<Coupon> coupones = new List<Coupon>();
         List<string> dateList = new List<string>();
         List<string> equipmentList = new List<string>();
         List<string> ordertList = new List<string>();
+        List<string> couponesList = new List<string>();
         DateTime TodayDate = DateTime.Today;
         public MainAdmin()
         {
@@ -33,6 +35,30 @@ namespace DataBasePracticalJob
             RefreshDateList();
             RefreshEquipmentList();
             RefreshOrderList();
+            RefreshCouponList();
+        }
+        private void FillOrderData()
+        {
+            orders.Clear();
+            ordertList.Clear();
+            orders = DataBase.GetOrder();
+            for (int i = 0; i < orders.Count; i++)
+            {
+                if (orders[i].coupon == 0)
+                {
+                    ordertList.Add("Orders ID: " + orders[i].ID + ", Coupon: No coupon, Selected date: " + schedules[orders[i].schedule].ID + " " + schedules[orders[i].schedule].date
+                        + ", Status: " + orders[i].status + ", People number: " + orders[i].peopleNumber + ", Jump type: " + jumpType[orders[i].jumpType].type
+                        + ", Equipment: " + equipments[orders[i].equipment].ID + " " + equipments[orders[i].equipment].filming + " " + equipments[orders[i].equipment].photographing
+                        + " " + equipments[orders[i].equipment].price);
+                }
+                else
+                {
+                    ordertList.Add("Orders ID: " + orders[i].ID + ", Coupon: " + coupones[orders[i].coupon].code + ", Selected date: " + schedules[orders[i].schedule].ID + " " + schedules[orders[i].schedule].date
+                        + ", Status: " + orders[i].status + ", People number: " + orders[i].peopleNumber + ", Jump type: " + jumpType[orders[i].jumpType].type
+                        + ", Equipment: " + equipments[orders[i].equipment].ID + " " + equipments[orders[i].equipment].filming + " " + equipments[orders[i].equipment].photographing
+                        + " " + equipments[orders[i].equipment].price);
+                }
+            }
         }
         private void FillData()
         {
@@ -45,15 +71,7 @@ namespace DataBasePracticalJob
             numberLabel.Text = Convert.ToString(State.ActiveWorker.mobileNumber);
             dateTimePicker1.MinDate = TodayDate;
 
-            for (int i = 0; i < orders.Count; i++)
-            {
-                ordertList.Add("Orders ID: " + orders[i].ID + "\nCoupon: " + orders[i].coupon + "\nSelected date: " + schedules[orders[i].schedule].ID + " " + schedules[orders[i].schedule].date
-                    + "\nStatus: " + orders[i].status + "\nPeople number: " + orders[i].peopleNumber + "\nJump type: " + jumpType[orders[i].jumpType].type
-                    + "\nEquipment: " + equipments[orders[i].equipment].ID + " " + equipments[orders[i].equipment].filming + " " + equipments[orders[i].equipment].photographing
-                    + " " + equipments[orders[i].equipment].price);
-                ordertList.Add("-----------------------------------------------");
-            }
-
+            FillOrderData();
             for (int i = 0; i < schedules.Count; i++)
             {
                 dateList.Add(schedules[i].ID + " " + schedules[i].date);
@@ -98,7 +116,10 @@ namespace DataBasePracticalJob
             {
                 checkedPlanes.Items.Add(Convert.ToString(planes[i].ID + " " + planes[i].type + " " + planes[i].place));
             }
-
+            for(int i=0; i<coupones.Count; i++)
+            {
+                couponesList.Add(Convert.ToString(coupones[i].ID + " " + coupones[i].code));
+            }
         }
 
         private void UpdateData()
@@ -113,11 +134,12 @@ namespace DataBasePracticalJob
             equipments = DataBase.GetEquipment();
             orders = DataBase.GetOrder();
             jumpType = DataBase.GetJumpType();
+            coupones = DataBase.GetCoupon();
         }
 
         private void confirmButton_Click(object sender, EventArgs e)
         {
-            string theDate = dateTimePicker1.Value.ToShortDateString();
+            string theDate = dateTimePicker1.Value.ToShortDateString() + " " + dateTimePicker2.Value.ToShortTimeString();
 
             if (Convert.ToString(comboPilot.SelectedItem) == "" || Convert.ToString(comboPlane.SelectedItem) == "" || Convert.ToString(comboInstructor.SelectedItem) == "")
             {
@@ -138,7 +160,6 @@ namespace DataBasePracticalJob
                 dateList.Add(newSchedule.ID + " " + theDate);
                 RefreshDateList();
                 UpdateData();
-
             }
         }
         private void RefreshDateList()
@@ -156,12 +177,12 @@ namespace DataBasePracticalJob
             orderListBox.Items.Clear();
             orderListBox.Items.AddRange(ordertList.ToArray());
         }
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        private void RefreshCouponList()
         {
-
+            couponList.Items.Clear();
+            couponList.Items.AddRange(couponesList.ToArray());
         }
-
-        private void checkedSchedule_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
         }
@@ -219,6 +240,48 @@ namespace DataBasePracticalJob
         private void logoutButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void MainAdmin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void enterButton_Click(object sender, EventArgs e)
+        {
+            if (codeTextBox.Text == "" && codeTextBox.Text.Length != 14)
+            {
+                MessageBox.Show("Please write code correctly ");
+            }
+            else
+            {
+                Coupon cp = new Coupon();
+                cp.ID = coupones.Count;
+                cp.admin = State.ActiveWorker.ID;
+                cp.code = codeTextBox.Text;
+                DataBase.SaveCoupon(cp);
+                couponesList.Add(cp.ID + " " + cp.code);
+                RefreshCouponList();
+                UpdateData();
+                codeTextBox.Text = "";
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if((string)orderListBox.SelectedItem != "")
+            {
+                UpdateOrder u = new UpdateOrder();
+                u.ID = orderListBox.SelectedIndex;
+                u.status = "Completed";
+                DataBase.UpdateOrder(u);
+                FillOrderData();
+                RefreshOrderList();
+            }
+            else
+            {
+                MessageBox.Show("Please select not completed order at first!");
+            }
         }
     }
 }
