@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace DataBasePracticalJob
 {
     public partial class MainAdmin : Form
     {
+        Regex regex = new Regex(@"(((\w){4})+)((\-(\w){4})+)((\-(\w){4})+)$");
         List<Client> clients = new List<Client>();
         List<Order> orders = new List<Order>();
         List<Admin> admins = new List<Admin>();
@@ -22,6 +24,7 @@ namespace DataBasePracticalJob
         List<Equipment> equipments = new List<Equipment>();
         List<JumpType> jumpType = new List<JumpType>();
         List<Coupon> coupones = new List<Coupon>();
+        List<Review> reviews = new List<Review>();
         List<string> dateList = new List<string>();
         List<string> equipmentList = new List<string>();
         List<string> ordertList = new List<string>();
@@ -32,6 +35,7 @@ namespace DataBasePracticalJob
             InitializeComponent();
             UpdateData();
             FillData();
+            FillOrderData();
             RefreshDateList();
             RefreshEquipmentList();
             RefreshOrderList();
@@ -39,7 +43,7 @@ namespace DataBasePracticalJob
         }
         private void FillOrderData()
         {
-            orders.Clear();
+            //orders.Clear();
             ordertList.Clear();
             orders = DataBase.GetOrder();
             for (int i = 0; i < orders.Count; i++)
@@ -71,7 +75,6 @@ namespace DataBasePracticalJob
             numberLabel.Text = Convert.ToString(State.ActiveWorker.mobileNumber);
             dateTimePicker1.MinDate = TodayDate;
 
-            FillOrderData();
             for (int i = 0; i < schedules.Count; i++)
             {
                 dateList.Add(schedules[i].ID + " " + schedules[i].date);
@@ -116,7 +119,7 @@ namespace DataBasePracticalJob
             {
                 checkedPlanes.Items.Add(Convert.ToString(planes[i].ID + " " + planes[i].type + " " + planes[i].place));
             }
-            for(int i=0; i<coupones.Count; i++)
+            for(int i = 0; i<coupones.Count; i++)
             {
                 couponesList.Add(Convert.ToString(coupones[i].ID + " " + coupones[i].code));
             }
@@ -135,6 +138,7 @@ namespace DataBasePracticalJob
             orders = DataBase.GetOrder();
             jumpType = DataBase.GetJumpType();
             coupones = DataBase.GetCoupon();
+            reviews = DataBase.GetReview();
         }
 
         private void confirmButton_Click(object sender, EventArgs e)
@@ -181,6 +185,16 @@ namespace DataBasePracticalJob
         {
             couponList.Items.Clear();
             couponList.Items.AddRange(couponesList.ToArray());
+        }
+        private void RefreshReviewList()
+        {
+            jumpReviewListBox.Items.Clear();
+            instructorReviewListBox.Items.Clear();
+            if (reviews.Count >= (orderListBox.SelectedIndex + 1))
+            {
+                jumpReviewListBox.Items.Add(reviews[orderListBox.SelectedIndex].jump);
+                instructorReviewListBox.Items.Add(reviews[orderListBox.SelectedIndex].instructor);
+            }
         }
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
@@ -229,7 +243,8 @@ namespace DataBasePracticalJob
 
         private void orderListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (orders[orderListBox.SelectedIndex].status == "Completed")
+                RefreshReviewList();
         }
 
         private void comboPlane_SelectedIndexChanged(object sender, EventArgs e)
@@ -249,7 +264,9 @@ namespace DataBasePracticalJob
 
         private void enterButton_Click(object sender, EventArgs e)
         {
-            if (codeTextBox.Text == "" && codeTextBox.Text.Length != 14)
+            int help = 0;
+            Match match = regex.Match(codeTextBox.Text);
+            if (match.Success == false)
             {
                 MessageBox.Show("Please write code correctly ");
             }
@@ -259,11 +276,23 @@ namespace DataBasePracticalJob
                 cp.ID = coupones.Count;
                 cp.admin = State.ActiveWorker.ID;
                 cp.code = codeTextBox.Text;
-                DataBase.SaveCoupon(cp);
-                couponesList.Add(cp.ID + " " + cp.code);
-                RefreshCouponList();
-                UpdateData();
-                codeTextBox.Text = "";
+                for (int i = 0; i < coupones.Count; i++)
+                {
+                    if(codeTextBox.Text == coupones[i].code)
+                    {
+                        MessageBox.Show("This coupon already exist!");
+                        help = 1;
+                    }
+                }
+                if (help == 0)
+                {
+                    DataBase.SaveCoupon(cp);
+                    couponesList.Add(cp.ID + " " + cp.code);
+                    RefreshCouponList();
+                    UpdateData();
+                    codeTextBox.Text = "";
+                }
+
             }
         }
 

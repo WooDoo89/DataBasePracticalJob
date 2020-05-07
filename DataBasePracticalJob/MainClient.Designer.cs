@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.profileTab = new System.Windows.Forms.TabPage();
+            this.logoutButton = new System.Windows.Forms.Button();
             this.heightLabel = new System.Windows.Forms.Label();
             this.weightLabel = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -47,6 +48,8 @@
             this.usernameLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
             this.scheduleTab = new System.Windows.Forms.TabPage();
+            this.label13 = new System.Windows.Forms.Label();
+            this.peopleNTextBox = new System.Windows.Forms.TextBox();
             this.makeOrderButton = new System.Windows.Forms.Button();
             this.pilotSurnameLabel = new System.Windows.Forms.Label();
             this.instructorSurnameLabel = new System.Windows.Forms.Label();
@@ -64,16 +67,13 @@
             this.comboEquipment = new System.Windows.Forms.ComboBox();
             this.couponNumber = new System.Windows.Forms.TextBox();
             this.comboJumpType = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.peopleNTextBox = new System.Windows.Forms.TextBox();
-            this.logoutButton = new System.Windows.Forms.Button();
             this.reviewTab = new System.Windows.Forms.TabPage();
-            this.orderListBox = new System.Windows.Forms.ListBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.orderListBox = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.profileTab.SuspendLayout();
             this.scheduleTab.SuspendLayout();
@@ -113,11 +113,21 @@
             this.profileTab.Location = new System.Drawing.Point(4, 22);
             this.profileTab.Name = "profileTab";
             this.profileTab.Padding = new System.Windows.Forms.Padding(3);
-            this.profileTab.Size = new System.Drawing.Size(768, 400);
+            this.profileTab.Size = new System.Drawing.Size(881, 400);
             this.profileTab.TabIndex = 0;
             this.profileTab.Text = "Profile";
             this.profileTab.UseVisualStyleBackColor = true;
             this.profileTab.Click += new System.EventHandler(this.profileTab_Click);
+            // 
+            // logoutButton
+            // 
+            this.logoutButton.Location = new System.Drawing.Point(687, 6);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(75, 23);
+            this.logoutButton.TabIndex = 17;
+            this.logoutButton.Text = "Logout";
+            this.logoutButton.UseVisualStyleBackColor = true;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
             // heightLabel
             // 
@@ -283,6 +293,22 @@
             this.scheduleTab.Text = "Schedule";
             this.scheduleTab.UseVisualStyleBackColor = true;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(562, 5);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(81, 13);
+            this.label13.TabIndex = 24;
+            this.label13.Text = "People number:";
+            // 
+            // peopleNTextBox
+            // 
+            this.peopleNTextBox.Location = new System.Drawing.Point(565, 21);
+            this.peopleNTextBox.Name = "peopleNTextBox";
+            this.peopleNTextBox.Size = new System.Drawing.Size(100, 20);
+            this.peopleNTextBox.TabIndex = 23;
+            // 
             // makeOrderButton
             // 
             this.makeOrderButton.Location = new System.Drawing.Point(803, 161);
@@ -432,32 +458,6 @@
             this.comboJumpType.Size = new System.Drawing.Size(121, 21);
             this.comboJumpType.TabIndex = 1;
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(562, 5);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(81, 13);
-            this.label13.TabIndex = 24;
-            this.label13.Text = "People number:";
-            // 
-            // peopleNTextBox
-            // 
-            this.peopleNTextBox.Location = new System.Drawing.Point(565, 21);
-            this.peopleNTextBox.Name = "peopleNTextBox";
-            this.peopleNTextBox.Size = new System.Drawing.Size(100, 20);
-            this.peopleNTextBox.TabIndex = 23;
-            // 
-            // logoutButton
-            // 
-            this.logoutButton.Location = new System.Drawing.Point(687, 6);
-            this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Size = new System.Drawing.Size(75, 23);
-            this.logoutButton.TabIndex = 17;
-            this.logoutButton.Text = "Logout";
-            this.logoutButton.UseVisualStyleBackColor = true;
-            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
-            // 
             // reviewTab
             // 
             this.reviewTab.Controls.Add(this.button1);
@@ -473,30 +473,15 @@
             this.reviewTab.Text = "Review";
             this.reviewTab.UseVisualStyleBackColor = true;
             // 
-            // orderListBox
+            // button1
             // 
-            this.orderListBox.FormattingEnabled = true;
-            this.orderListBox.Location = new System.Drawing.Point(4, 4);
-            this.orderListBox.Name = "orderListBox";
-            this.orderListBox.Size = new System.Drawing.Size(874, 108);
-            this.orderListBox.TabIndex = 0;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(4, 152);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(122, 13);
-            this.label14.TabIndex = 1;
-            this.label14.Text = "Review about instructor:";
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(7, 169);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(189, 158);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "";
+            this.button1.Location = new System.Drawing.Point(398, 303);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Save";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // richTextBox2
             // 
@@ -515,15 +500,30 @@
             this.label15.TabIndex = 3;
             this.label15.Text = "Review about jump:";
             // 
-            // button1
+            // richTextBox1
             // 
-            this.button1.Location = new System.Drawing.Point(398, 303);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Save";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.richTextBox1.Location = new System.Drawing.Point(7, 169);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(189, 158);
+            this.richTextBox1.TabIndex = 2;
+            this.richTextBox1.Text = "";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(4, 152);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(122, 13);
+            this.label14.TabIndex = 1;
+            this.label14.Text = "Review about instructor:";
+            // 
+            // orderListBox
+            // 
+            this.orderListBox.FormattingEnabled = true;
+            this.orderListBox.Location = new System.Drawing.Point(4, 4);
+            this.orderListBox.Name = "orderListBox";
+            this.orderListBox.Size = new System.Drawing.Size(874, 108);
+            this.orderListBox.TabIndex = 0;
             // 
             // MainClient
             // 

@@ -52,6 +52,7 @@
             this.planeTab = new System.Windows.Forms.TabPage();
             this.checkedPlanes = new System.Windows.Forms.CheckedListBox();
             this.scheduleTab = new System.Windows.Forms.TabPage();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.scheduleListBox = new System.Windows.Forms.ListBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -65,14 +66,17 @@
             this.equipment = new System.Windows.Forms.TabPage();
             this.equipmentListBox = new System.Windows.Forms.ListBox();
             this.orderTab = new System.Windows.Forms.TabPage();
+            this.CompleteButton = new System.Windows.Forms.Button();
             this.orderListBox = new System.Windows.Forms.ListBox();
             this.couponTab = new System.Windows.Forms.TabPage();
-            this.couponList = new System.Windows.Forms.ListBox();
-            this.codeTextBox = new System.Windows.Forms.TextBox();
-            this.enterButton = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.CompleteButton = new System.Windows.Forms.Button();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.enterButton = new System.Windows.Forms.Button();
+            this.codeTextBox = new System.Windows.Forms.TextBox();
+            this.couponList = new System.Windows.Forms.ListBox();
+            this.instructorReviewListBox = new System.Windows.Forms.ListBox();
+            this.jumpReviewListBox = new System.Windows.Forms.ListBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.profileTab.SuspendLayout();
             this.clientsTab.SuspendLayout();
@@ -336,6 +340,16 @@
             this.scheduleTab.Text = "Schedule";
             this.scheduleTab.UseVisualStyleBackColor = true;
             // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePicker2.Location = new System.Drawing.Point(602, 222);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(82, 20);
+            this.dateTimePicker2.TabIndex = 16;
+            this.dateTimePicker2.TabStop = false;
+            this.dateTimePicker2.Value = new System.DateTime(2020, 5, 6, 16, 57, 0, 0);
+            // 
             // scheduleListBox
             // 
             this.scheduleListBox.FormattingEnabled = true;
@@ -447,6 +461,10 @@
             // 
             // orderTab
             // 
+            this.orderTab.Controls.Add(this.label13);
+            this.orderTab.Controls.Add(this.label12);
+            this.orderTab.Controls.Add(this.jumpReviewListBox);
+            this.orderTab.Controls.Add(this.instructorReviewListBox);
             this.orderTab.Controls.Add(this.CompleteButton);
             this.orderTab.Controls.Add(this.orderListBox);
             this.orderTab.Location = new System.Drawing.Point(4, 22);
@@ -455,6 +473,16 @@
             this.orderTab.TabIndex = 7;
             this.orderTab.Text = "Orders";
             this.orderTab.UseVisualStyleBackColor = true;
+            // 
+            // CompleteButton
+            // 
+            this.CompleteButton.Location = new System.Drawing.Point(645, 286);
+            this.CompleteButton.Name = "CompleteButton";
+            this.CompleteButton.Size = new System.Drawing.Size(120, 23);
+            this.CompleteButton.TabIndex = 15;
+            this.CompleteButton.Text = "Complete this order";
+            this.CompleteButton.UseVisualStyleBackColor = true;
+            this.CompleteButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // orderListBox
             // 
@@ -478,20 +506,14 @@
             this.couponTab.Text = "Coupones";
             this.couponTab.UseVisualStyleBackColor = true;
             // 
-            // couponList
+            // label11
             // 
-            this.couponList.FormattingEnabled = true;
-            this.couponList.Location = new System.Drawing.Point(3, 3);
-            this.couponList.Name = "couponList";
-            this.couponList.Size = new System.Drawing.Size(544, 199);
-            this.couponList.TabIndex = 15;
-            // 
-            // codeTextBox
-            // 
-            this.codeTextBox.Location = new System.Drawing.Point(3, 237);
-            this.codeTextBox.Name = "codeTextBox";
-            this.codeTextBox.Size = new System.Drawing.Size(196, 20);
-            this.codeTextBox.TabIndex = 16;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(3, 221);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(80, 13);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "Enter the code:";
             // 
             // enterButton
             // 
@@ -503,34 +525,54 @@
             this.enterButton.UseVisualStyleBackColor = true;
             this.enterButton.Click += new System.EventHandler(this.enterButton_Click);
             // 
-            // label11
+            // codeTextBox
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 221);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(80, 13);
-            this.label11.TabIndex = 18;
-            this.label11.Text = "Enter the code:";
+            this.codeTextBox.Location = new System.Drawing.Point(3, 237);
+            this.codeTextBox.Name = "codeTextBox";
+            this.codeTextBox.Size = new System.Drawing.Size(196, 20);
+            this.codeTextBox.TabIndex = 16;
             // 
-            // CompleteButton
+            // couponList
             // 
-            this.CompleteButton.Location = new System.Drawing.Point(645, 286);
-            this.CompleteButton.Name = "CompleteButton";
-            this.CompleteButton.Size = new System.Drawing.Size(120, 23);
-            this.CompleteButton.TabIndex = 15;
-            this.CompleteButton.Text = "Complete this order";
-            this.CompleteButton.UseVisualStyleBackColor = true;
-            this.CompleteButton.Click += new System.EventHandler(this.button1_Click);
+            this.couponList.FormattingEnabled = true;
+            this.couponList.Location = new System.Drawing.Point(3, 3);
+            this.couponList.Name = "couponList";
+            this.couponList.Size = new System.Drawing.Size(544, 199);
+            this.couponList.TabIndex = 15;
             // 
-            // dateTimePicker2
+            // instructorReviewListBox
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker2.Location = new System.Drawing.Point(602, 222);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(82, 20);
-            this.dateTimePicker2.TabIndex = 16;
-            this.dateTimePicker2.TabStop = false;
-            this.dateTimePicker2.Value = new System.DateTime(2020, 5, 6, 16, 57, 0, 0);
+            this.instructorReviewListBox.FormattingEnabled = true;
+            this.instructorReviewListBox.Location = new System.Drawing.Point(3, 299);
+            this.instructorReviewListBox.Name = "instructorReviewListBox";
+            this.instructorReviewListBox.Size = new System.Drawing.Size(194, 95);
+            this.instructorReviewListBox.TabIndex = 16;
+            // 
+            // jumpReviewListBox
+            // 
+            this.jumpReviewListBox.FormattingEnabled = true;
+            this.jumpReviewListBox.Location = new System.Drawing.Point(203, 299);
+            this.jumpReviewListBox.Name = "jumpReviewListBox";
+            this.jumpReviewListBox.Size = new System.Drawing.Size(194, 95);
+            this.jumpReviewListBox.TabIndex = 17;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(3, 283);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(122, 13);
+            this.label12.TabIndex = 18;
+            this.label12.Text = "Review about instructor:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(200, 283);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(101, 13);
+            this.label13.TabIndex = 19;
+            this.label13.Text = "Review about jump:";
             // 
             // MainAdmin
             // 
@@ -552,6 +594,7 @@
             this.scheduleTab.PerformLayout();
             this.equipment.ResumeLayout(false);
             this.orderTab.ResumeLayout(false);
+            this.orderTab.PerformLayout();
             this.couponTab.ResumeLayout(false);
             this.couponTab.PerformLayout();
             this.ResumeLayout(false);
@@ -605,5 +648,9 @@
         private System.Windows.Forms.ListBox couponList;
         private System.Windows.Forms.Button CompleteButton;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ListBox jumpReviewListBox;
+        private System.Windows.Forms.ListBox instructorReviewListBox;
+        private System.Windows.Forms.Label label13;
     }
 }

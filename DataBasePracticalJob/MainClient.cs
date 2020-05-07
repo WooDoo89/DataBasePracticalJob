@@ -162,7 +162,6 @@ namespace DataBasePracticalJob
                 if (help == 0)
                 {
                     MessageBox.Show("You entered wrong code. Please try again!");
-                    couponNumber.Text = "";
                 }
                 else
                 {
@@ -181,6 +180,13 @@ namespace DataBasePracticalJob
                     DataBase.SaveOrder(newOrder);
                     UpdateData();
                     MessageBox.Show("Your order has been saved");
+
+                    comboDate.Text = "";
+                    comboEquipment.Text = "";
+                    comboJumpType.Text = "";
+                    couponNumber.Text = "";
+                    peopleNTextBox.Text = "";
+                    
                 }
             }
             else
@@ -200,6 +206,12 @@ namespace DataBasePracticalJob
                 DataBase.SaveOrder(newOrder);
                 UpdateData();
                 MessageBox.Show("Your order has been saved");
+
+                comboDate.Text = "";
+                comboEquipment.Text = "";
+                comboJumpType.Text = "";
+                couponNumber.Text = "";
+                peopleNTextBox.Text = "";
             }
         }
 
