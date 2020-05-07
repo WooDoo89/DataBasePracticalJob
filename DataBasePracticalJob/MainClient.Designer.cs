@@ -49,7 +49,6 @@
             this.nameLabel = new System.Windows.Forms.Label();
             this.scheduleTab = new System.Windows.Forms.TabPage();
             this.label13 = new System.Windows.Forms.Label();
-            this.peopleNTextBox = new System.Windows.Forms.TextBox();
             this.makeOrderButton = new System.Windows.Forms.Button();
             this.pilotSurnameLabel = new System.Windows.Forms.Label();
             this.instructorSurnameLabel = new System.Windows.Forms.Label();
@@ -74,10 +73,24 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.orderListBox = new System.Windows.Forms.ListBox();
+            this.addNameTextBox = new System.Windows.Forms.TextBox();
+            this.addSurnameTextBox = new System.Windows.Forms.TextBox();
+            this.addWeightTextBox = new System.Windows.Forms.TextBox();
+            this.addHeightTextBox = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.addJumpersLIstBox = new System.Windows.Forms.ListBox();
+            this.enterAddJumperButton = new System.Windows.Forms.Button();
+            this.peopleNUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.profileTab.SuspendLayout();
             this.scheduleTab.SuspendLayout();
             this.reviewTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.peopleNUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -267,8 +280,20 @@
             // 
             // scheduleTab
             // 
+            this.scheduleTab.Controls.Add(this.label21);
+            this.scheduleTab.Controls.Add(this.label16);
+            this.scheduleTab.Controls.Add(this.peopleNUpDown);
+            this.scheduleTab.Controls.Add(this.enterAddJumperButton);
+            this.scheduleTab.Controls.Add(this.addJumpersLIstBox);
+            this.scheduleTab.Controls.Add(this.label20);
+            this.scheduleTab.Controls.Add(this.label19);
+            this.scheduleTab.Controls.Add(this.label18);
+            this.scheduleTab.Controls.Add(this.label17);
+            this.scheduleTab.Controls.Add(this.addHeightTextBox);
+            this.scheduleTab.Controls.Add(this.addWeightTextBox);
+            this.scheduleTab.Controls.Add(this.addSurnameTextBox);
+            this.scheduleTab.Controls.Add(this.addNameTextBox);
             this.scheduleTab.Controls.Add(this.label13);
-            this.scheduleTab.Controls.Add(this.peopleNTextBox);
             this.scheduleTab.Controls.Add(this.makeOrderButton);
             this.scheduleTab.Controls.Add(this.pilotSurnameLabel);
             this.scheduleTab.Controls.Add(this.instructorSurnameLabel);
@@ -301,13 +326,6 @@
             this.label13.Size = new System.Drawing.Size(81, 13);
             this.label13.TabIndex = 24;
             this.label13.Text = "People number:";
-            // 
-            // peopleNTextBox
-            // 
-            this.peopleNTextBox.Location = new System.Drawing.Point(565, 21);
-            this.peopleNTextBox.Name = "peopleNTextBox";
-            this.peopleNTextBox.Size = new System.Drawing.Size(100, 20);
-            this.peopleNTextBox.TabIndex = 23;
             // 
             // makeOrderButton
             // 
@@ -457,6 +475,7 @@
             this.comboJumpType.Name = "comboJumpType";
             this.comboJumpType.Size = new System.Drawing.Size(121, 21);
             this.comboJumpType.TabIndex = 1;
+            this.comboJumpType.SelectedIndexChanged += new System.EventHandler(this.comboJumpType_SelectedIndexChanged);
             // 
             // reviewTab
             // 
@@ -525,6 +544,121 @@
             this.orderListBox.Size = new System.Drawing.Size(874, 108);
             this.orderListBox.TabIndex = 0;
             // 
+            // addNameTextBox
+            // 
+            this.addNameTextBox.Location = new System.Drawing.Point(257, 124);
+            this.addNameTextBox.Name = "addNameTextBox";
+            this.addNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.addNameTextBox.TabIndex = 25;
+            // 
+            // addSurnameTextBox
+            // 
+            this.addSurnameTextBox.Location = new System.Drawing.Point(257, 154);
+            this.addSurnameTextBox.Name = "addSurnameTextBox";
+            this.addSurnameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.addSurnameTextBox.TabIndex = 26;
+            // 
+            // addWeightTextBox
+            // 
+            this.addWeightTextBox.Location = new System.Drawing.Point(257, 180);
+            this.addWeightTextBox.Name = "addWeightTextBox";
+            this.addWeightTextBox.Size = new System.Drawing.Size(44, 20);
+            this.addWeightTextBox.TabIndex = 27;
+            this.addWeightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.addWeightTextBox_KeyPress);
+            // 
+            // addHeightTextBox
+            // 
+            this.addHeightTextBox.Location = new System.Drawing.Point(257, 206);
+            this.addHeightTextBox.Name = "addHeightTextBox";
+            this.addHeightTextBox.Size = new System.Drawing.Size(44, 20);
+            this.addHeightTextBox.TabIndex = 28;
+            this.addHeightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.addHeightTextBox_KeyPress);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(199, 131);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(38, 13);
+            this.label17.TabIndex = 30;
+            this.label17.Text = "Name:";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(199, 157);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(52, 13);
+            this.label18.TabIndex = 31;
+            this.label18.Text = "Surname:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(199, 183);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(44, 13);
+            this.label19.TabIndex = 32;
+            this.label19.Text = "Weight:";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(199, 209);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(41, 13);
+            this.label20.TabIndex = 33;
+            this.label20.Text = "Height:";
+            // 
+            // addJumpersLIstBox
+            // 
+            this.addJumpersLIstBox.FormattingEnabled = true;
+            this.addJumpersLIstBox.Location = new System.Drawing.Point(4, 118);
+            this.addJumpersLIstBox.Name = "addJumpersLIstBox";
+            this.addJumpersLIstBox.Size = new System.Drawing.Size(189, 108);
+            this.addJumpersLIstBox.TabIndex = 34;
+            // 
+            // enterAddJumperButton
+            // 
+            this.enterAddJumperButton.Location = new System.Drawing.Point(202, 232);
+            this.enterAddJumperButton.Name = "enterAddJumperButton";
+            this.enterAddJumperButton.Size = new System.Drawing.Size(75, 23);
+            this.enterAddJumperButton.TabIndex = 35;
+            this.enterAddJumperButton.Text = "Enter";
+            this.enterAddJumperButton.UseVisualStyleBackColor = true;
+            this.enterAddJumperButton.Click += new System.EventHandler(this.enterAddJumperButton_Click);
+            // 
+            // peopleNUpDown
+            // 
+            this.peopleNUpDown.Location = new System.Drawing.Point(565, 22);
+            this.peopleNUpDown.Maximum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.peopleNUpDown.Name = "peopleNUpDown";
+            this.peopleNUpDown.Size = new System.Drawing.Size(120, 20);
+            this.peopleNUpDown.TabIndex = 36;
+            this.peopleNUpDown.ValueChanged += new System.EventHandler(this.peopleNUpDown_ValueChanged);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(309, 183);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(22, 13);
+            this.label16.TabIndex = 37;
+            this.label16.Text = "kg.";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(309, 209);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(24, 13);
+            this.label21.TabIndex = 38;
+            this.label21.Text = "cm.";
+            // 
             // MainClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -532,7 +666,7 @@
             this.ClientSize = new System.Drawing.Size(913, 450);
             this.Controls.Add(this.tabControl1);
             this.Name = "MainClient";
-            this.Text = "MainClient";
+            this.Text = "Client";
             this.tabControl1.ResumeLayout(false);
             this.profileTab.ResumeLayout(false);
             this.profileTab.PerformLayout();
@@ -540,6 +674,7 @@
             this.scheduleTab.PerformLayout();
             this.reviewTab.ResumeLayout(false);
             this.reviewTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.peopleNUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -583,7 +718,6 @@
         private System.Windows.Forms.Label instructorSurnameLabel;
         private System.Windows.Forms.Button makeOrderButton;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox peopleNTextBox;
         private System.Windows.Forms.Button logoutButton;
         private System.Windows.Forms.TabPage reviewTab;
         private System.Windows.Forms.Button button1;
@@ -592,5 +726,18 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ListBox orderListBox;
+        private System.Windows.Forms.Button enterAddJumperButton;
+        private System.Windows.Forms.ListBox addJumpersLIstBox;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox addHeightTextBox;
+        private System.Windows.Forms.TextBox addWeightTextBox;
+        private System.Windows.Forms.TextBox addSurnameTextBox;
+        private System.Windows.Forms.TextBox addNameTextBox;
+        private System.Windows.Forms.NumericUpDown peopleNUpDown;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label16;
     }
 }

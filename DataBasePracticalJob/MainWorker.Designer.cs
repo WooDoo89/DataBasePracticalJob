@@ -29,7 +29,9 @@
         private void InitializeComponent()
         {
             this.scheduleTab = new System.Windows.Forms.TabPage();
+            this.scheduleListBox = new System.Windows.Forms.ListBox();
             this.profileTab = new System.Windows.Forms.TabPage();
+            this.logoutButton = new System.Windows.Forms.Button();
             this.idLabel = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.numberLabel = new System.Windows.Forms.Label();
@@ -45,8 +47,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.ordersTab = new System.Windows.Forms.TabPage();
             this.orderListBox = new System.Windows.Forms.ListBox();
-            this.scheduleListBox = new System.Windows.Forms.ListBox();
-            this.logoutButton = new System.Windows.Forms.Button();
             this.scheduleTab.SuspendLayout();
             this.profileTab.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -62,6 +62,14 @@
             this.scheduleTab.TabIndex = 4;
             this.scheduleTab.Text = "Schedule";
             this.scheduleTab.UseVisualStyleBackColor = true;
+            // 
+            // scheduleListBox
+            // 
+            this.scheduleListBox.FormattingEnabled = true;
+            this.scheduleListBox.Location = new System.Drawing.Point(3, 3);
+            this.scheduleListBox.Name = "scheduleListBox";
+            this.scheduleListBox.Size = new System.Drawing.Size(762, 277);
+            this.scheduleListBox.TabIndex = 16;
             // 
             // profileTab
             // 
@@ -85,6 +93,16 @@
             this.profileTab.TabIndex = 0;
             this.profileTab.Text = "Profile";
             this.profileTab.UseVisualStyleBackColor = true;
+            // 
+            // logoutButton
+            // 
+            this.logoutButton.Location = new System.Drawing.Point(687, 6);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(75, 23);
+            this.logoutButton.TabIndex = 14;
+            this.logoutButton.Text = "Logout";
+            this.logoutButton.UseVisualStyleBackColor = true;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
             // idLabel
             // 
@@ -218,24 +236,6 @@
             this.orderListBox.Size = new System.Drawing.Size(756, 264);
             this.orderListBox.TabIndex = 15;
             // 
-            // scheduleListBox
-            // 
-            this.scheduleListBox.FormattingEnabled = true;
-            this.scheduleListBox.Location = new System.Drawing.Point(3, 3);
-            this.scheduleListBox.Name = "scheduleListBox";
-            this.scheduleListBox.Size = new System.Drawing.Size(762, 277);
-            this.scheduleListBox.TabIndex = 16;
-            // 
-            // logoutButton
-            // 
-            this.logoutButton.Location = new System.Drawing.Point(687, 6);
-            this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Size = new System.Drawing.Size(75, 23);
-            this.logoutButton.TabIndex = 14;
-            this.logoutButton.Text = "Logout";
-            this.logoutButton.UseVisualStyleBackColor = true;
-            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
-            // 
             // MainWorker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -243,7 +243,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControl1);
             this.Name = "MainWorker";
-            this.Text = "MainWorker";
+            this.Text = "Worker";
             this.Load += new System.EventHandler(this.MainWorker_Load);
             this.scheduleTab.ResumeLayout(false);
             this.profileTab.ResumeLayout(false);

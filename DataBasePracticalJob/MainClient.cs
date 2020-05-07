@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,14 +23,22 @@ namespace DataBasePracticalJob
         List<Order> orders = new List<Order>();
         List<Coupon> coupones = new List<Coupon>();
         List<Review> reviews = new List<Review>();
+        List<AdditionalJumpers> additionalJumpers = new List<AdditionalJumpers>();
+        List<AdditionalJumpers> additionalJumpers2 = new List<AdditionalJumpers>();
         List<string> ordertList = new List<string>();
         List<int> ids = new List<int>();
+        List<string> addJumpersList = new List<string>();
+
+        int addJumperHelper;
+        int addJumperHelper2 = 0;
+        
         public MainClient()
         {
             InitializeComponent();
             UpdateData();
             ShowData();
             UpdateOrderData();
+            closeAddjumpersFields(true);
         }
         private void RefreshOrderList()
         {
@@ -73,6 +82,8 @@ namespace DataBasePracticalJob
             jumpTypes = DataBase.GetJumpType();
             coupones = DataBase.GetCoupon();
             reviews = DataBase.GetReview();
+            additionalJumpers = DataBase.GetAdditionalJumpers();
+            addJumperHelper = additionalJumpers.Count;
         }
 
         private void ShowData()
@@ -144,6 +155,7 @@ namespace DataBasePracticalJob
             int help = 0;
             Order newOrder = new Order();
             UpdateSchedule us = new UpdateSchedule();
+            List<AdditionalJumpers> ad;
             if (Convert.ToString(comboDate.SelectedItem) == "" || Convert.ToString(comboJumpType.SelectedItem) == "")
             {
                 MessageBox.Show("Please check if all data is correct");
@@ -167,8 +179,7 @@ namespace DataBasePracticalJob
                 {
                     if ((string)comboEquipment.SelectedItem != "")
                         newOrder.equipment = comboEquipment.SelectedIndex - 1;
-                    if (peopleNTextBox.Text != "")
-                        newOrder.peopleNumber = Convert.ToInt32(peopleNTextBox.Text);
+                        newOrder.peopleNumber = Convert.ToInt32(peopleNUpDown.Value);
                     newOrder.ID = orders.Count;
                     newOrder.admin = 0;
                     newOrder.schedule = comboDate.SelectedIndex;
@@ -176,6 +187,10 @@ namespace DataBasePracticalJob
                     newOrder.status = "Confirming";
                     us.client = State.ActiveClient.ID;
                     us.date = (string)comboDate.SelectedItem;
+                    for (int j = 0; j < additionalJumpers2.Count; j++)
+                    {
+                        DataBase.SaveAdditionalJumpers(additionalJumpers2[j]);
+                    }
                     DataBase.UpdateSchedule(us);
                     DataBase.SaveOrder(newOrder);
                     UpdateData();
@@ -185,16 +200,18 @@ namespace DataBasePracticalJob
                     comboEquipment.Text = "";
                     comboJumpType.Text = "";
                     couponNumber.Text = "";
-                    peopleNTextBox.Text = "";
-                    
+                    peopleNUpDown.Value = 0;
+                    addJumperHelper2 = 0;
+                    addJumperHelper = additionalJumpers.Count;
+                    additionalJumpers2.Clear();
+
                 }
             }
             else
             {
                 if ((string)comboEquipment.SelectedItem != "")
                     newOrder.equipment = comboEquipment.SelectedIndex - 1;
-                if (peopleNTextBox.Text != "")
-                    newOrder.peopleNumber = Convert.ToInt32(peopleNTextBox.Text);
+                    newOrder.peopleNumber = Convert.ToInt32(peopleNUpDown.Value);
                 newOrder.ID = orders.Count;
                 newOrder.admin = 0;
                 newOrder.schedule = comboDate.SelectedIndex;
@@ -202,6 +219,10 @@ namespace DataBasePracticalJob
                 newOrder.status = "Confirming";
                 us.client = State.ActiveClient.ID;
                 us.date = (string)comboDate.SelectedItem;
+                for (int j = 0; j < additionalJumpers2.Count; j++)
+                {
+                        DataBase.SaveAdditionalJumpers(additionalJumpers2[j]);
+                }
                 DataBase.UpdateSchedule(us);
                 DataBase.SaveOrder(newOrder);
                 UpdateData();
@@ -211,7 +232,11 @@ namespace DataBasePracticalJob
                 comboEquipment.Text = "";
                 comboJumpType.Text = "";
                 couponNumber.Text = "";
-                peopleNTextBox.Text = "";
+                peopleNUpDown.Value = 0;
+                addJumperHelper2 = 0;
+                addJumperHelper = additionalJumpers.Count;
+                additionalJumpers2.Clear();
+
             }
         }
 
@@ -243,6 +268,101 @@ namespace DataBasePracticalJob
             {
                 MessageBox.Show("Please fill in all data");
             }
+        }
+
+        private void comboJumpType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboJumpType.SelectedIndex == 0)
+                peopleNUpDown.Enabled = false;
+            else
+                peopleNUpDown.Enabled = true;
+        }
+
+
+        private void peopleNUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            closeAddjumpersFields(true);
+
+        }
+
+        private void closeAddjumpersFields(bool help) 
+        {
+            if (peopleNUpDown.Value == 0 || help == false)
+            {
+                addHeightTextBox.Enabled = false;
+                addJumpersLIstBox.Enabled = false;
+                addNameTextBox.Enabled = false;
+                addSurnameTextBox.Enabled = false;
+                enterAddJumperButton.Enabled = false;
+                addWeightTextBox.Enabled = false;
+            }
+            else
+            {
+                addHeightTextBox.Enabled = true;
+                addJumpersLIstBox.Enabled = true;
+                addNameTextBox.Enabled = true;
+                addSurnameTextBox.Enabled = true;
+                enterAddJumperButton.Enabled = true;
+                addWeightTextBox.Enabled = true;
+            }
+        }
+        private void enterAddJumperButton_Click(object sender, EventArgs e)
+        {
+            AdditionalJumpers ad2 = new AdditionalJumpers();
+            bool fields;
+            if (addJumperHelper2 < peopleNUpDown.Value) {
+                ad2.ID = addJumperHelper;
+                ad2.order = orders.Count;
+                ad2.name = addNameTextBox.Text;
+                ad2.surname = addSurnameTextBox.Text;
+                ad2.weight = Convert.ToDouble(addWeightTextBox.Text);
+                ad2.height = Convert.ToDouble(addHeightTextBox.Text);
+                additionalJumpers2.Add(ad2);
+                //additionalJumpers2 = new List<AdditionalJumpers>
+                //{
+                //    new AdditionalJumpers {ID = addJumperHelper, order = orders.Count,  name = addNameTextBox.Text, surname = addSurnameTextBox.Text, weight = Convert.ToDouble(addWeightTextBox.Text), height = Convert.ToDouble(addHeightTextBox.Text) }
+                //};
+                addJumpersList.Add(addNameTextBox.Text + " " + addSurnameTextBox.Text + " " + Convert.ToDouble(addWeightTextBox.Text) + " " + Convert.ToDouble(addHeightTextBox.Text));
+                addJumperHelper++;
+                addJumperHelper2++;
+                RefreshAddJumpersList();
+                addNameTextBox.Text = "";
+                addSurnameTextBox.Text = "";
+                addWeightTextBox.Text = "";
+                addHeightTextBox.Text = "";
+
+            }
+            else
+            {
+                fields = false;
+                closeAddjumpersFields(fields);
+                MessageBox.Show("You have reached max number of People");
+            }
+
+        }
+        private void RefreshAddJumpersList()
+        {
+            addJumpersLIstBox.Items.Clear();
+            addJumpersLIstBox.Items.AddRange(addJumpersList.ToArray());
+        }
+        private void Check(KeyPressEventArgs e)
+        {
+            Char chr = e.KeyChar;
+            if (!Char.IsDigit(chr) && chr != 8)
+            {
+                e.Handled = true;
+                MessageBox.Show("Please enter a valid value");
+            }
+        }
+
+        private void addWeightTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Check(e);
+        }
+
+        private void addHeightTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Check(e);
         }
     }
 }

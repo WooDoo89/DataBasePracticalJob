@@ -96,7 +96,7 @@
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.label1);
             this.Name = "Main";
-            this.Text = "Form1";
+            this.Text = "Main Page";
             this.Load += new System.EventHandler(this.Main_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

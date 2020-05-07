@@ -153,6 +153,21 @@ namespace DataBasePracticalJob
                 cnn.Execute("insert into Review values (@ID, @order, @instructor, @jump)", cl);
             }
         }
+        public static List<AdditionalJumpers> GetAdditionalJumpers()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<AdditionalJumpers>("select * from AdditionalJumpers", new DynamicParameters());
+                return output.ToList();
+            }
+        }
+        public static void SaveAdditionalJumpers(AdditionalJumpers cl)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                cnn.Execute("insert into AdditionalJumpers values (@ID, @order, @name, @surname, @weight, @height)", cl);
+            }
+        }
         public static void UpdateSchedule(UpdateSchedule u)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))

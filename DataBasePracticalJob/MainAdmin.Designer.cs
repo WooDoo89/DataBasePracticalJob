@@ -66,6 +66,10 @@
             this.equipment = new System.Windows.Forms.TabPage();
             this.equipmentListBox = new System.Windows.Forms.ListBox();
             this.orderTab = new System.Windows.Forms.TabPage();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.jumpReviewListBox = new System.Windows.Forms.ListBox();
+            this.instructorReviewListBox = new System.Windows.Forms.ListBox();
             this.CompleteButton = new System.Windows.Forms.Button();
             this.orderListBox = new System.Windows.Forms.ListBox();
             this.couponTab = new System.Windows.Forms.TabPage();
@@ -73,10 +77,7 @@
             this.enterButton = new System.Windows.Forms.Button();
             this.codeTextBox = new System.Windows.Forms.TextBox();
             this.couponList = new System.Windows.Forms.ListBox();
-            this.instructorReviewListBox = new System.Windows.Forms.ListBox();
-            this.jumpReviewListBox = new System.Windows.Forms.ListBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.addJumpersListBox = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.profileTab.SuspendLayout();
             this.clientsTab.SuspendLayout();
@@ -461,6 +462,7 @@
             // 
             // orderTab
             // 
+            this.orderTab.Controls.Add(this.addJumpersListBox);
             this.orderTab.Controls.Add(this.label13);
             this.orderTab.Controls.Add(this.label12);
             this.orderTab.Controls.Add(this.jumpReviewListBox);
@@ -473,6 +475,40 @@
             this.orderTab.TabIndex = 7;
             this.orderTab.Text = "Orders";
             this.orderTab.UseVisualStyleBackColor = true;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(200, 283);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(101, 13);
+            this.label13.TabIndex = 19;
+            this.label13.Text = "Review about jump:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(3, 283);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(122, 13);
+            this.label12.TabIndex = 18;
+            this.label12.Text = "Review about instructor:";
+            // 
+            // jumpReviewListBox
+            // 
+            this.jumpReviewListBox.FormattingEnabled = true;
+            this.jumpReviewListBox.Location = new System.Drawing.Point(203, 299);
+            this.jumpReviewListBox.Name = "jumpReviewListBox";
+            this.jumpReviewListBox.Size = new System.Drawing.Size(194, 95);
+            this.jumpReviewListBox.TabIndex = 17;
+            // 
+            // instructorReviewListBox
+            // 
+            this.instructorReviewListBox.FormattingEnabled = true;
+            this.instructorReviewListBox.Location = new System.Drawing.Point(3, 299);
+            this.instructorReviewListBox.Name = "instructorReviewListBox";
+            this.instructorReviewListBox.Size = new System.Drawing.Size(194, 95);
+            this.instructorReviewListBox.TabIndex = 16;
             // 
             // CompleteButton
             // 
@@ -540,39 +576,14 @@
             this.couponList.Size = new System.Drawing.Size(544, 199);
             this.couponList.TabIndex = 15;
             // 
-            // instructorReviewListBox
+            // addJumpersListBox
             // 
-            this.instructorReviewListBox.FormattingEnabled = true;
-            this.instructorReviewListBox.Location = new System.Drawing.Point(3, 299);
-            this.instructorReviewListBox.Name = "instructorReviewListBox";
-            this.instructorReviewListBox.Size = new System.Drawing.Size(194, 95);
-            this.instructorReviewListBox.TabIndex = 16;
-            // 
-            // jumpReviewListBox
-            // 
-            this.jumpReviewListBox.FormattingEnabled = true;
-            this.jumpReviewListBox.Location = new System.Drawing.Point(203, 299);
-            this.jumpReviewListBox.Name = "jumpReviewListBox";
-            this.jumpReviewListBox.Size = new System.Drawing.Size(194, 95);
-            this.jumpReviewListBox.TabIndex = 17;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(3, 283);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(122, 13);
-            this.label12.TabIndex = 18;
-            this.label12.Text = "Review about instructor:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(200, 283);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(101, 13);
-            this.label13.TabIndex = 19;
-            this.label13.Text = "Review about jump:";
+            this.addJumpersListBox.FormattingEnabled = true;
+            this.addJumpersListBox.Location = new System.Drawing.Point(403, 299);
+            this.addJumpersListBox.Name = "addJumpersListBox";
+            this.addJumpersListBox.Size = new System.Drawing.Size(194, 95);
+            this.addJumpersListBox.TabIndex = 20;
+            this.addJumpersListBox.SelectedIndexChanged += new System.EventHandler(this.addJumpersListBox_SelectedIndexChanged);
             // 
             // MainAdmin
             // 
@@ -581,7 +592,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControl1);
             this.Name = "MainAdmin";
-            this.Text = "MainAdmin";
+            this.Text = "Admin";
             this.Load += new System.EventHandler(this.MainAdmin_Load);
             this.tabControl1.ResumeLayout(false);
             this.profileTab.ResumeLayout(false);
@@ -652,5 +663,6 @@
         private System.Windows.Forms.ListBox jumpReviewListBox;
         private System.Windows.Forms.ListBox instructorReviewListBox;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ListBox addJumpersListBox;
     }
 }

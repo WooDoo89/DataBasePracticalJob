@@ -25,6 +25,7 @@ namespace DataBasePracticalJob
         List<JumpType> jumpType = new List<JumpType>();
         List<Coupon> coupones = new List<Coupon>();
         List<Review> reviews = new List<Review>();
+        List<AdditionalJumpers> additionalJumpers = new List<AdditionalJumpers>();
         List<string> dateList = new List<string>();
         List<string> equipmentList = new List<string>();
         List<string> ordertList = new List<string>();
@@ -85,7 +86,7 @@ namespace DataBasePracticalJob
                 equipmentList.Add(equipments[i].ID + " " + equipments[i].filming + " " + equipments[i].photographing + " " + equipments[i].price);
             }
 
-            for (int i = 0; i < clients.Count; i++)
+            for (int i = 1; i < clients.Count; i++)
             {
                 checkedClients.Items.Add(Convert.ToString(clients[i].ID + " " + clients[i].name + " " + clients[i].surname));
             }
@@ -119,7 +120,7 @@ namespace DataBasePracticalJob
             {
                 checkedPlanes.Items.Add(Convert.ToString(planes[i].ID + " " + planes[i].type + " " + planes[i].place));
             }
-            for(int i = 0; i<coupones.Count; i++)
+            for (int i = 1; i < coupones.Count; i++)
             {
                 couponesList.Add(Convert.ToString(coupones[i].ID + " " + coupones[i].code));
             }
@@ -139,6 +140,7 @@ namespace DataBasePracticalJob
             jumpType = DataBase.GetJumpType();
             coupones = DataBase.GetCoupon();
             reviews = DataBase.GetReview();
+            additionalJumpers = DataBase.GetAdditionalJumpers();
         }
 
         private void confirmButton_Click(object sender, EventArgs e)
@@ -196,6 +198,27 @@ namespace DataBasePracticalJob
                 instructorReviewListBox.Items.Add(reviews[orderListBox.SelectedIndex].instructor);
             }
         }
+        private void RefreshadditionalJumpersList()
+        {
+            addJumpersListBox.Items.Clear();
+            if (orders[orderListBox.SelectedIndex].peopleNumber >= 1)
+            {
+                for (int j = 0; j < additionalJumpers.Count; j++)
+                {
+                    if (additionalJumpers[j].order == orders[orderListBox.SelectedIndex].ID)
+                    {
+                        addJumpersListBox.Items.Add(additionalJumpers[j].ID + " " +
+                        additionalJumpers[j].name + " " +
+                        additionalJumpers[j].surname + " " +
+                        Convert.ToString(additionalJumpers[j].weight) + " " +
+                        Convert.ToString(additionalJumpers[j].height));
+                    }
+
+                }
+            }
+        }    
+            
+        
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
@@ -245,6 +268,7 @@ namespace DataBasePracticalJob
         {
             if (orders[orderListBox.SelectedIndex].status == "Completed")
                 RefreshReviewList();
+            RefreshadditionalJumpersList();
         }
 
         private void comboPlane_SelectedIndexChanged(object sender, EventArgs e)
@@ -273,7 +297,7 @@ namespace DataBasePracticalJob
             else
             {
                 Coupon cp = new Coupon();
-                cp.ID = coupones.Count;
+                cp.ID = coupones.Count + 1;
                 cp.admin = State.ActiveWorker.ID;
                 cp.code = codeTextBox.Text;
                 for (int i = 0; i < coupones.Count; i++)
@@ -311,6 +335,11 @@ namespace DataBasePracticalJob
             {
                 MessageBox.Show("Please select not completed order at first!");
             }
+        }
+
+        private void addJumpersListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

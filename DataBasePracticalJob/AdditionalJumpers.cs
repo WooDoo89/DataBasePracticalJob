@@ -9,10 +9,10 @@ namespace DataBasePracticalJob
     class AdditionalJumpers
     {
         public int ID { get; set; }
-        public Order order { get; set; }
+        public int order { get; set; }
         public string name { get; set; }
         public string surname { get; set; }
-        public float weight { get; set; }
-        public float height { get; set; }
+        public double weight { get; set; }
+        public double height { get; set; }
     }
 }
