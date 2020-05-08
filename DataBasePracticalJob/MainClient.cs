@@ -155,7 +155,6 @@ namespace DataBasePracticalJob
             int help = 0;
             Order newOrder = new Order();
             UpdateSchedule us = new UpdateSchedule();
-            List<AdditionalJumpers> ad;
             if (Convert.ToString(comboDate.SelectedItem) == "" || Convert.ToString(comboJumpType.SelectedItem) == "")
             {
                 MessageBox.Show("Please check if all data is correct");
@@ -177,9 +176,9 @@ namespace DataBasePracticalJob
                 }
                 else
                 {
-                    if ((string)comboEquipment.SelectedItem != "")
-                        newOrder.equipment = comboEquipment.SelectedIndex - 1;
-                        newOrder.peopleNumber = Convert.ToInt32(peopleNUpDown.Value);
+                    if (comboEquipment.SelectedIndex != -1)
+                        newOrder.equipment = comboEquipment.SelectedIndex;
+                    newOrder.peopleNumber = Convert.ToInt32(peopleNUpDown.Value);
                     newOrder.ID = orders.Count;
                     newOrder.admin = 0;
                     newOrder.schedule = comboDate.SelectedIndex;
@@ -204,14 +203,13 @@ namespace DataBasePracticalJob
                     addJumperHelper2 = 0;
                     addJumperHelper = additionalJumpers.Count;
                     additionalJumpers2.Clear();
-
                 }
             }
             else
             {
-                if ((string)comboEquipment.SelectedItem != "")
-                    newOrder.equipment = comboEquipment.SelectedIndex - 1;
-                    newOrder.peopleNumber = Convert.ToInt32(peopleNUpDown.Value);
+                if (comboEquipment.SelectedIndex != -1)
+                    newOrder.equipment = comboEquipment.SelectedIndex;
+                newOrder.peopleNumber = Convert.ToInt32(peopleNUpDown.Value);
                 newOrder.ID = orders.Count;
                 newOrder.admin = 0;
                 newOrder.schedule = comboDate.SelectedIndex;

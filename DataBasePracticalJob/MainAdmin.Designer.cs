@@ -66,6 +66,7 @@
             this.equipment = new System.Windows.Forms.TabPage();
             this.equipmentListBox = new System.Windows.Forms.ListBox();
             this.orderTab = new System.Windows.Forms.TabPage();
+            this.addJumpersListBox = new System.Windows.Forms.ListBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.jumpReviewListBox = new System.Windows.Forms.ListBox();
@@ -77,7 +78,6 @@
             this.enterButton = new System.Windows.Forms.Button();
             this.codeTextBox = new System.Windows.Forms.TextBox();
             this.couponList = new System.Windows.Forms.ListBox();
-            this.addJumpersListBox = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.profileTab.SuspendLayout();
             this.clientsTab.SuspendLayout();
@@ -104,7 +104,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(776, 426);
+            this.tabControl1.Size = new System.Drawing.Size(924, 426);
             this.tabControl1.TabIndex = 0;
             // 
             // profileTab
@@ -463,18 +463,27 @@
             // orderTab
             // 
             this.orderTab.Controls.Add(this.addJumpersListBox);
+            this.orderTab.Controls.Add(this.orderListBox);
             this.orderTab.Controls.Add(this.label13);
             this.orderTab.Controls.Add(this.label12);
             this.orderTab.Controls.Add(this.jumpReviewListBox);
             this.orderTab.Controls.Add(this.instructorReviewListBox);
             this.orderTab.Controls.Add(this.CompleteButton);
-            this.orderTab.Controls.Add(this.orderListBox);
             this.orderTab.Location = new System.Drawing.Point(4, 22);
             this.orderTab.Name = "orderTab";
-            this.orderTab.Size = new System.Drawing.Size(768, 400);
+            this.orderTab.Size = new System.Drawing.Size(916, 400);
             this.orderTab.TabIndex = 7;
             this.orderTab.Text = "Orders";
             this.orderTab.UseVisualStyleBackColor = true;
+            // 
+            // addJumpersListBox
+            // 
+            this.addJumpersListBox.FormattingEnabled = true;
+            this.addJumpersListBox.Location = new System.Drawing.Point(403, 299);
+            this.addJumpersListBox.Name = "addJumpersListBox";
+            this.addJumpersListBox.Size = new System.Drawing.Size(194, 95);
+            this.addJumpersListBox.TabIndex = 20;
+            this.addJumpersListBox.SelectedIndexChanged += new System.EventHandler(this.addJumpersListBox_SelectedIndexChanged);
             // 
             // label13
             // 
@@ -523,9 +532,9 @@
             // orderListBox
             // 
             this.orderListBox.FormattingEnabled = true;
-            this.orderListBox.Location = new System.Drawing.Point(3, 3);
+            this.orderListBox.Location = new System.Drawing.Point(0, 3);
             this.orderListBox.Name = "orderListBox";
-            this.orderListBox.Size = new System.Drawing.Size(762, 277);
+            this.orderListBox.Size = new System.Drawing.Size(913, 277);
             this.orderListBox.TabIndex = 14;
             this.orderListBox.SelectedIndexChanged += new System.EventHandler(this.orderListBox_SelectedIndexChanged);
             // 
@@ -576,20 +585,11 @@
             this.couponList.Size = new System.Drawing.Size(544, 199);
             this.couponList.TabIndex = 15;
             // 
-            // addJumpersListBox
-            // 
-            this.addJumpersListBox.FormattingEnabled = true;
-            this.addJumpersListBox.Location = new System.Drawing.Point(403, 299);
-            this.addJumpersListBox.Name = "addJumpersListBox";
-            this.addJumpersListBox.Size = new System.Drawing.Size(194, 95);
-            this.addJumpersListBox.TabIndex = 20;
-            this.addJumpersListBox.SelectedIndexChanged += new System.EventHandler(this.addJumpersListBox_SelectedIndexChanged);
-            // 
             // MainAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(948, 450);
             this.Controls.Add(this.tabControl1);
             this.Name = "MainAdmin";
             this.Text = "Admin";

@@ -51,17 +51,35 @@ namespace DataBasePracticalJob
             {
                 if (orders[i].coupon == 0)
                 {
-                    ordertList.Add("Orders ID: " + orders[i].ID + ", Coupon: No coupon, Selected date: " + schedules[orders[i].schedule].ID + " " + schedules[orders[i].schedule].date
+                    if (orders[i].equipment == 0)
+                    {
+                        ordertList.Add("Orders ID: " + orders[i].ID + ", Coupon: No coupon, Selected date: " + schedules[orders[i].schedule].ID + " " + schedules[orders[i].schedule].date
+                            + ", Status: " + orders[i].status + ", People number: " + orders[i].peopleNumber + ", Jump type: " + jumpType[orders[i].jumpType].type
+                            + ", Equipment: No equipment");
+                    }
+                    else
+                    {
+                        ordertList.Add("Orders ID: " + orders[i].ID + ", Coupon: No coupon, Selected date: " + schedules[orders[i].schedule].ID + " " + schedules[orders[i].schedule].date
                         + ", Status: " + orders[i].status + ", People number: " + orders[i].peopleNumber + ", Jump type: " + jumpType[orders[i].jumpType].type
                         + ", Equipment: " + equipments[orders[i].equipment].ID + " " + equipments[orders[i].equipment].filming + " " + equipments[orders[i].equipment].photographing
                         + " " + equipments[orders[i].equipment].price);
+                    }
                 }
                 else
                 {
-                    ordertList.Add("Orders ID: " + orders[i].ID + ", Coupon: " + coupones[orders[i].coupon].code + ", Selected date: " + schedules[orders[i].schedule].ID + " " + schedules[orders[i].schedule].date
-                        + ", Status: " + orders[i].status + ", People number: " + orders[i].peopleNumber + ", Jump type: " + jumpType[orders[i].jumpType].type
-                        + ", Equipment: " + equipments[orders[i].equipment].ID + " " + equipments[orders[i].equipment].filming + " " + equipments[orders[i].equipment].photographing
-                        + " " + equipments[orders[i].equipment].price);
+                    if (orders[i].equipment == 0)
+                    {
+                        ordertList.Add("Orders ID: " + orders[i].ID + ", Coupon: " + coupones[orders[i].coupon].code + ", Selected date: " + schedules[orders[i].schedule].ID + " " + schedules[orders[i].schedule].date
+                            + ", Status: " + orders[i].status + ", People number: " + orders[i].peopleNumber + ", Jump type: " + jumpType[orders[i].jumpType].type
+                            + ", Equipment: No equipment");
+                    }
+                    else
+                    {
+                        ordertList.Add("Orders ID: " + orders[i].ID + ", Coupon: " + coupones[orders[i].coupon].code + ", Selected date: " + schedules[orders[i].schedule].ID + " " + schedules[orders[i].schedule].date
+                            + ", Status: " + orders[i].status + ", People number: " + orders[i].peopleNumber + ", Jump type: " + jumpType[orders[i].jumpType].type
+                            + ", Equipment: " + equipments[orders[i].equipment].ID + " " + equipments[orders[i].equipment].filming + " " + equipments[orders[i].equipment].photographing
+                            + " " + equipments[orders[i].equipment].price);
+                    }
                 }
             }
         }
@@ -81,7 +99,7 @@ namespace DataBasePracticalJob
                 dateList.Add(schedules[i].ID + " " + schedules[i].date);
             }
 
-            for (int i = 0; i < equipments.Count; i++)
+            for (int i = 1; i < equipments.Count; i++)
             {
                 equipmentList.Add(equipments[i].ID + " " + equipments[i].filming + " " + equipments[i].photographing + " " + equipments[i].price);
             }
@@ -266,9 +284,12 @@ namespace DataBasePracticalJob
 
         private void orderListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (orders[orderListBox.SelectedIndex].status == "Completed")
-                RefreshReviewList();
-            RefreshadditionalJumpersList();
+            if ((string)orderListBox.SelectedItem != null)
+            {
+                if (orders[orderListBox.SelectedIndex].status == "Completed")
+                    RefreshReviewList();
+                RefreshadditionalJumpersList();
+            }
         }
 
         private void comboPlane_SelectedIndexChanged(object sender, EventArgs e)
@@ -297,7 +318,7 @@ namespace DataBasePracticalJob
             else
             {
                 Coupon cp = new Coupon();
-                cp.ID = coupones.Count + 1;
+                cp.ID = coupones.Count;
                 cp.admin = State.ActiveWorker.ID;
                 cp.code = codeTextBox.Text;
                 for (int i = 0; i < coupones.Count; i++)
