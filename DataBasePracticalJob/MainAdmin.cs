@@ -286,7 +286,7 @@ namespace DataBasePracticalJob
         {
             if ((string)orderListBox.SelectedItem != null)
             {
-                if (orders[orderListBox.SelectedIndex].status == "Completed")
+                if (orders[orderListBox.SelectedIndex].status == "Completed!")
                     RefreshReviewList();
                 RefreshadditionalJumpersList();
             }
